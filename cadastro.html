@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pockitchen - Entrar</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!--Fonte do site (principal, redondinha)-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="container_grande">
+    <div id="grid_container">
+      <div id="div_logo">
+        <ul>
+          <li><img src="img/logo.png" id="logo"></li>
+          <li><h1 id="texto_logo">Pockitchen</h1></li>
+        </ul>
+      </div>
+      <p id="boas_vindas">Criar uma conta</p>
+      <form id="formulario">
+        <label for="email">Insira o seu endereço de e-mail:</label><br><br>
+        <input type="email" id="email" placeholder="Ex: seuemail@example.com" required><br><br>
+        <label for="telefone">Insira o seu número de telefone:</label><br><br>
+        <input type="tel" id="telefone" placeholder="+00 (00) 000000000" maxlength="15" required><br><br>
+        <label for="senha1">Crie uma senha:</label><br><br>
+        <input type="password" id="senha1" placeholder="********" minlength="8" required><br><br>
+        <label for="senha2">Repita a senha:</label><br><br>
+        <input type="password" id="senha2" placeholder="********" minlength="8" required><br><br>
+        <div class="butao">
+          <button id="entrar">CADASTRAR</button>
+        </div>
+        <div id="logins">
+          <h1 id="ou">OU</h1>
+        </div>
+      <div id="gloog">
+        <button id="google"><img src="img/google.png" class="icons">CONTINUE COM GOOGLE</button>
+      </div>
+        
+      </form>
+    </div>
+  </div>
+  <div id="cadastrar">
+    <p id="não_conta">Já tem uma conta?</p>
+    <a href="index.html"><p>ENTRAR</p></a>
+  </div>
+  <img src="img/imagem.png" id="imagem">
+
+  
+ 
+      
+    
+      
+      <script src="cadastro.js"></script>
+</body>
+</html>
