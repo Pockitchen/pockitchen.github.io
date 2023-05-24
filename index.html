@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,12 +24,12 @@
         <p id="boas_vindas">Bem-vindo(a)!</p>
         <form id="formulario">
             <label>Insira o seu endereço de e-mail:</label><br><br>
-            <input id="emailLoginInput" type="email01" placeholder="Ex: seuemail@email.com.br" > 
-            <p id="email-error"></p><br><br>
-            <label>Informe sua senha:</label>
+            <input id="emailLoginInput" type="text" placeholder="Ex: seuemail@email.com.br" > 
+            <p class="inputError" id="email-error"></p class="inputError"><br><br><br>
+            <label>Informe sua senha:</label><br><br>
            
-            <input id="passwordLoginInput" type="password" placeholder="********" minlength="8"><br>
-            <p id="senha-error"></p>
+            <input type="password" id="passwordLoginInput" placeholder="********" minlength="8"><br>
+            <p id="inputError"></p>
 
             <button id="forgot-password-btn">Esqueci minha senha</button>
             <div id="forgot-password-dialog">
@@ -39,7 +39,8 @@
             <p>Por favor, insira o endereço de e-mail associado à sua conta para receber as instruções de redefinição de senha.</p>
             <form>
                 <label for="email">Endereço de E-mail</label>
-                <input type="text" id="email" name="email" required pattern>
+                <input type="text" id="email" name="email" required>
+
                 <br> <br>
                 <button type="submit">Enviar</button>
             </form>
@@ -51,7 +52,7 @@
                 <h1 id="ou">OU</h1>
                 
             </div>
-            <div id="gloog">  <button id="google"><img src="img/google.png" class="icons">CONTINUE COM GOOGLE</button></div>
+            <div id="gloog">  <button id="google"><img src="img/google.png" class="icons" >CONTINUE COM GOOGLE</button></div>
           
             </div>
         </div> 
@@ -64,8 +65,7 @@
     </div>
     <img src="img/imagem.png" id="imagem">
     
-    <script src="scripts/js.js" type="module"></script>
-    <script src="scripts/firebaseAPI.js" type="module"></script>
+    <script src="scripts/logar.js" type="module"></script>
 
 </body>
 </html>

@@ -3,6 +3,12 @@ body {
     display: grid;
     grid-template-columns: 60% 40%;
   }
+
+  #inputError{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    color: #f55;
+  }
   
   #container_grande {
     grid-column-start: 1;
@@ -12,7 +18,7 @@ body {
   
   #grid_container {
     display: grid;
-    grid-template-rows: 20% 15% 35% 6% 10%;
+    grid-template-rows: 20% 8% 35% 6% 10%;
   }
   
   #div_logo {
@@ -141,7 +147,8 @@ body {
   
   #gloog {
     display: grid;
-    place-items: center;
+    height: 3.9rem;
+   
    
   }
   
@@ -156,12 +163,15 @@ body {
   }
   
   #cadastrar {
-    grid-column-start: 1;
-    grid-column-end: 3;
-    
-    grid-row-end: 3;
- 
     grid-column-start: 2;
+    padding-top:54.5rem;
+    grid-row-start: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.8rem;
+    color: #fafafafa;
   }
   
   #não_conta {
