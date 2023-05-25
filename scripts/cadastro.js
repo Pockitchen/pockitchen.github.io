@@ -1,6 +1,7 @@
 import {onAuthStateChanged,
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
+  signInWithPopup,
   AuthErrorCodes
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
 import { auth } from "./firebaseAPI.js";
