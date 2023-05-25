@@ -1,5 +1,6 @@
 import {onAuthStateChanged,
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
   AuthErrorCodes
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
 import { auth } from "./firebaseAPI.js";
@@ -9,11 +10,13 @@ const nomeInput = document.getElementById('nome');
 const senha1Input = document.getElementById('senha1');
 const senha2Input = document.getElementById('senha2');
 const cadastrarBtn = document.getElementById('entrar');
+const cadastrarGoogle = document.getElementById('google');
 const emailError = document.getElementById('email-error');
 const nomeError = document.getElementById('nome-error');
 const senha1Error = document.getElementById('senha1-error');
 const senha2Error = document.getElementById('senha2-error');
 
+//cadastrando com email
 cadastrarBtn.addEventListener('click', function() {
   event.preventDefault();
 
@@ -63,6 +66,32 @@ function validarEmail(email) {
 function validarSenha(senha) {
   return senha.length >= 8;
 }
+
+//cadastrando com google
+const provider = new GoogleAuthProvider();
+provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+cadastrarGoogle.addEventListener('click', function() {
+  event.preventDefault();
+  signInWithPopup(auth, provider).then((result) => {
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    const user = result.user;
+    console.log(user)
+    console.log("token")
+    console.log(token)
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    //const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+    console.log(error)
+  });
+
+
+});
 
 onAuthStateChanged(auth, user=> {
   if (user != null){
