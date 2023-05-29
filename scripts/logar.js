@@ -36,7 +36,7 @@ enviarRedefinicao.addEventListener('click', function() {
     console.log(error)
     console.log('Mensagem: ' + error.message)
     if (error.message == `Firebase: Error (auth/user-not-found).`) {
-      errorOut.innerHTML = `Email não reconhecido. <a href="cadastro.html">Cadastre-se</a>`
+      errorOut.innerHTML = `Email não reconhecido. <a href="cadastro">Cadastre-se</a>`
     } else if (error.message == `Firebase: Error (auth/missing-email).`) {
       errorOut.innerHTML = `Insira o email no campo acima.`
     } else if (error.message == `Firebase: Error (auth/invalid-email).`) {
@@ -69,7 +69,7 @@ entrarButton.addEventListener('click', async function(evento) {
     } else if (error.code == AuthErrorCodes.INVALID_EMAIL) {
       senhaErrorWarn.innerHTML = `Email não reconhecido.`
     } else if (error.message == `Firebase: Error (auth/user-not-found).`) {
-      senhaErrorWarn.innerHTML = `Usuário não reconhecido. <a href="cadastro.html">Cadastre-se</a>`
+      senhaErrorWarn.innerHTML = `Usuário não reconhecido. <a href="cadastro">Cadastre-se</a>`
     } else if (error.message == `Firebase: Error (auth/missing-password).`) {
       senhaErrorWarn.innerHTML = `Insira a senha.`
     }
