@@ -4,7 +4,7 @@ body {
     grid-template-columns: 60% 40%;
   }
 
-  #inputError{
+  .inputError{
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 700;
     color: #f55;
@@ -128,15 +128,17 @@ body {
   }
   
   #google {
-    font-size: 1.3vw;
-   
-    padding: 10px 60px;
+    padding: 6px 30px;
+    font-size: 1vw;
+    grid-row-start: 4;
+    padding: 5px;
     font-family: 'Josefin Sans', sans-serif;
     color: white;
     background: #126BBD;
     border: none;
     border-radius: 10px;
-  
+    display: grid;
+    grid-template-columns: 10% 90%;
     align-items: center;
   }
   

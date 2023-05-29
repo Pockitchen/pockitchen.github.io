@@ -7,6 +7,7 @@ import { getAuth,
         signInWithCustomToken,
         createUserWithEmailAndPassword,
         signOut,
+        sendPasswordResetEmail
     } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
 
 const appSettings = {

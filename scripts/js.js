@@ -2,7 +2,8 @@
 import {onAuthStateChanged,
         signOut,
         signInWithEmailAndPassword,
-        AuthErrorCodes
+        AuthErrorCodes,
+        sendPasswordResetEmail
       } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
 import { auth } from "./firebaseAPI.js";
 
@@ -49,7 +50,7 @@ onAuthStateChanged(auth, user=> {
   if (user != null){
       console.log(user.email);
       console.log("Logado");
-      window.location = "entrada.html"
+      window.location = "entrada"
   } else {
       console.log("No User");
   }

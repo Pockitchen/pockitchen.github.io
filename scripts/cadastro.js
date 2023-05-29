@@ -52,8 +52,13 @@ cadastrarBtn.addEventListener('click', function() {
       })
       console.log(user)
     } catch(error){
-      console.log(error);
+      if (error.message == `user is not defined`) {
+        emailError.innerHTML = `E-mail já em uso.`
+      }
+      console.log(error.code)
+      console.log("----------------")
       console.log(error.message)
+      console.log("----------------")
     }
   }
 
@@ -70,8 +75,8 @@ function validarSenha(senha) {
 
 //cadastrando com google
 const provider = new GoogleAuthProvider();
-provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
 cadastrarGoogle.addEventListener('click', function() {
+  console.log("aa")
   event.preventDefault();
   signInWithPopup(auth, provider).then((result) => {
     const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -90,15 +95,13 @@ cadastrarGoogle.addEventListener('click', function() {
     // ...
     console.log(error)
   });
-
-
 });
 
 onAuthStateChanged(auth, user=> {
   if (user != null){
       console.log(user.email);
       console.log("Logado");
-      window.location = "entrada.html"
+      window.location = "../entrada"
   } else {
       console.log("No User");
   }

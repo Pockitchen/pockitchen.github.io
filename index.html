@@ -29,7 +29,7 @@
             <label>Informe sua senha:</label><br><br>
            
             <input type="password" id="passwordLoginInput" placeholder="********" minlength="8"><br>
-            <p id="inputError"></p>
+            <p id="inputError" class="inputError"></p>
 
             <button id="forgot-password-btn">Esqueci minha senha</button>
             <div id="forgot-password-dialog">
@@ -39,10 +39,10 @@
             <p>Por favor, insira o endereço de e-mail associado à sua conta para receber as instruções de redefinição de senha.</p>
             <form>
                 <label for="email">Endereço de E-mail</label>
-                <input type="text" id="email" name="email" required>
+                <input type="text" id="EmailRedefinicaoSenha" name="email">
 
-                <br> <br>
-                <button type="submit">Enviar</button>
+                <p class="inputError" id="senhaRedefinicaoErro"></p>
+                <button type="submit" id="enviarEmailRedefinicaoSenha">Enviar</button>
             </form>
             <button id="close-dialog-btn">Fechar</button>
             </div>
@@ -61,7 +61,7 @@
        
     <div id="cadastrar">
         <p id="não_conta">Não tem uma conta?</p>
-        <a href="cadastro.html"><p>Cadastre-se</p></a>
+        <a href="cadastro"><p>Cadastre-se</p></a>
     </div>
     <img src="img/imagem.png" id="imagem">
     
