@@ -1,0 +1,520 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar {
+   
+    background-color: #E02437;
+  height: 85px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  padding: 0.2%;
+}
+
+
+.navbar-brand {
+  
+  text-decoration: none;
+  color: white;
+    grid-column-start: 3;
+    font-size:5vh;
+    -webkit-text-stroke: 1.125px white;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  position: absolute;
+
+  left: 20px;
+}
+
+.hamburger-menu {
+  width: 30px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  color: #fff;
+}
+
+.bar {
+  width: 100%;
+  height: 3px;
+  background: #fff;
+}
+.img {
+  width: 8.5vh;
+  height: 8.5vh;
+  margin-bottom: 1.5vh;
+  display: flex;
+  align-self: center;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 9998;
+  border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+}
+
+.side-menu.active {
+  transform: translateX(0);
+}
+
+.side-menu ul {
+  list-style-type: none;
+  padding: 20px;
+}
+
+.side-menu li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Espaçamento entre o ícone e a palavra */
+}
+
+
+
+.side-menu a {
+  font-family: 'Josefin Sans', sans-serif;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+.side-menu li:hover {
+  background-color: #252424; /* Cor de fundo ao passar o mouse sobre o item do menu */
+
+}
+
+.side-menu li:hover a {
+  color: #E02437; /* Cor do texto ao passar o mouse sobre o item do menu */
+}
+.side-menu li:hover i {
+  color: #E02437; /* Cor do texto e do ícone ao passar o mouse sobre o item do menu */
+}
+.container {
+    display: flex;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  
+    margin: 5%;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    color: #888;
+    cursor: pointer;
+}
+
+.search-input {
+    padding-left: 40px;
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+    border: 1px solid #E02437;
+    border-radius: 10px; 
+}
+.filter-button {
+    display: flex;
+    align-items: center;
+    background-color: #E02437;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 7px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.filter-button:hover {
+    background-color: #FC7831;
+}
+
+.filter-button span {
+    margin-right: 5px;
+}
+
+.label-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 20%;
+  margin-bottom: 40px;
+}
+
+.label-container label {
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .label-container {
+    margin-left: 3%;
+  }
+}
+@media(max-width: 1120 ){
+ .label-container {
+  margin-left: 10%;
+}
+}
+@media (max-width: 480px) {
+  .label-container {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 0;
+  }
+
+  .label-container label {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+}
+
+.label-text {
+    font-size: 25px;
+    font-weight: bold;
+    color:#FC7831;
+    font-family: 'Josefin Sans', sans-serif;
+
+}
+
+
+
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #FC7831;
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  height: 350px;
+  width: 220px;
+  margin-bottom: 50px;
+  box-shadow: 1px 1px 5px #000000;
+  overflow: hidden;
+  position: relative;
+  border-radius: 31px;
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover; /* Ajusta a imagem para preencher todo o contêiner */
+    border-radius: 10px;
+}
+
+.intro {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  padding: 6px;
+  box-sizing: border-box;
+  border-radius: 0 0 10px 10px;
+  background: rgba(27, 27, 27, 0.8);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  opacity: 0;
+  transition:1;
+  opacity: 1;
+}
+
+
+.card-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+
+}
+
+.card-rating {
+  display: none;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.card:hover .card-rating {
+  display: flex;
+}
+
+.card-rating span {
+  color: #FFC107;
+  margin-right: 2px;
+}
+
+.card-details {
+  display: flex;
+ 
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.card-details-item {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.card-details-item span {
+  margin-left: 5px;
+}
+
+h2 {
+  margin: 10px;
+  font-size: 20px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+
+
+
+ /* Adiciona uma fonte personalizada */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Define uma cor de fundo global */
+body {
+  background-color: #f5f5f5;
+  font-family: 'Roboto', sans-serif;
+}
+
+.rating {
+  display: inline-block;
+}
+
+.rating input {
+  display: none;
+}
+
+.rating label {
+  float: right;
+  cursor: pointer;
+  color: #aaa;
+}
+
+.rating label:before {
+  content: '\2605';
+  font-size: 24px;
+}
+
+.rating input:checked ~ label,
+.rating input:checked ~ label ~ label {
+  color: gold;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.user-name {
+  margin-left: 10px;
+}
+
+.recipe-container {
+  border: 2px solid #FC7831;
+  border-radius: 10px;
+  padding: 40px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 1000px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.recipe-image {
+  flex: 0 0 200px;
+  width: 332px;
+  height: 200px;
+  margin-right: 10px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.recipe-details {
+  flex: 1;
+}
+
+.recipe-details > div {
+  margin-bottom: 20px;
+}
+
+.recipe-steps h3,
+.recipe-filters h3,
+.recipe-rating h3 {
+  margin: 0;
+  font-weight: 700;
+  color: #333;
+}
+
+.rating-stars {
+  color: #ffcc00;
+  font-size: 20px;
+}
+
+.user-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-post {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+ 
+
+.recipe-filters li{
+  list-style: none;
+ 
+}
+
+.recipe-filters a{
+  text-decoration: none;
+}
+
+.recipe-filters ul{
+  gap: 2vw;
+  display: flex;
+}
+
+.recipe-filters ul li a{
+  padding: 2px;
+  border-radius: 20px;
+  border: solid 2px #E02437;
+  color: #E02437;
+}
+
+.recipe-filters ul li a:hover {
+  background-color: #E02437;
+  color: white;
+}
+
+/* Adicione essas regras no final do seu arquivo principal.css */
+
+/* Estilos para telas menores */
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+    height: 60px;
+  }
+
+  .navbar-brand {
+    font-size: 4vh;
+  }
+
+  .img {
+    width: 6.5vh;
+    height: 6.5vh;
+  }
+
+  .side-menu {
+    width: 200px;
+  }
+
+  #card01{
+    display: none;
+  }
+  #card02{
+    display: none;
+  }
+
+  #card03{
+    display: none;
+  }
+}
+
+/* Estilos para telas ainda menores */
+
+@media only screen and (max-width: 480px) {
+  .navbar-brand {
+    font-size: 3.5vh;
+  }
+
+  .img {
+    width: 5vh;
+    height: 5vh;
+  }
+
+  .side-menu {
+    width: 150px;
+  }
+}
+
+/* Estilos para telas grandes */
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+}
+
+#coments{
+  width: 100vw;
+  height: 10vh;
+  border-color: #000000;
+  border-radius: 20px;
+  border: 3px solid #000
+}

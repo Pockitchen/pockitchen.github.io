@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pockitchen - Entrar</title>
+    <link rel="stylesheet" href="index.css">
+
+    <!--Fonte do site (principal, redondinha)-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="container_grande">
+        <div id="grid_container">
+        <div id="div_logo">
+            <ul>
+                <li><img src="../img/logo.png" id="logo"></li>
+                <li><h1 id="texto_logo">Pockitchen</h1></li>
+            </ul>
+        </div>
+        <p id="boas_vindas">Bem-vindo(a)!</p>
+        <form id="formulario">
+            <label>Insira o seu endereço de e-mail:</label><br><br>
+            <input id="emailLoginInput" type="text" placeholder="Ex: seuemail@email.com.br" > 
+            <p class="inputError" id="email-error"></p class="inputError"><br><br><br>
+            <label>Informe sua senha:</label><br><br>
+           
+            <input type="password" id="passwordLoginInput" placeholder="********" minlength="8"><br>
+            <p id="inputError" class="inputError"></p>
+
+            <button id="forgot-password-btn">Esqueci minha senha</button>
+            <div id="forgot-password-dialog">
+                <div id="barra_vermelha"></div>
+                <br>
+            <h2>Esqueceu sua senha?</h2>
+            <p>Por favor, insira o endereço de e-mail associado à sua conta para receber as instruções de redefinição de senha.</p>
+            <form>
+                <label for="email">Endereço de E-mail</label>
+                <input type="text" id="EmailRedefinicaoSenha" name="email">
+
+                <p class="inputError" id="senhaRedefinicaoErro"></p>
+                <button type="submit" id="enviarEmailRedefinicaoSenha">Enviar</button>
+            </form>
+            <button id="close-dialog-btn">Fechar</button>
+            </div>
+
+            <div class="butao"> <button id="entrar">Entrar</button> </div> 
+            <div id="logins">
+                <h1 id="ou">OU</h1>
+                
+            </div>
+            <div id="gloog">  <button id="google"><img src="../img/google.png" class="icons" >CONTINUE COM GOOGLE</button></div>
+          
+            </div>
+        </div> 
+        
+        </form>
+       
+    <div id="cadastrar">
+        <p id="não_conta">Não tem uma conta?</p>
+        <a href="../cadastro"><p>Cadastre-se</p></a>
+    </div>
+    <img src="../img/imagem.png" id="imagem">
+    
+    <script src="../scripts/logar.js" type="module"></script>
+
+</body>
+</html>

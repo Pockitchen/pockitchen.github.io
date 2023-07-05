@@ -1,13 +1,23 @@
 //import { userE } from "./firebaseAPI.js"
-import {onAuthStateChanged,
-        signOut,
-        signInWithEmailAndPassword,
-        GoogleAuthProvider,
-        signInWithPopup,
-        sendPasswordResetEmail,
-        AuthErrorCodes
-      } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
-import { auth } from "./firebaseAPI.js";
+import {
+  onAuthStateChanged,
+  signOut,
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  sendPasswordResetEmail,
+  AuthErrorCodes
+} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+import {
+  getFirestore,
+  collection,
+  getDoc,
+  setDoc,
+  addDoc,
+  getDocs,
+  doc,
+} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { auth, app, db } from "./firebaseAPI.js";
 
 // Seleciona os elementos do DOM
 const forgotPasswordBtn = document.getElementById('forgot-password-btn');
@@ -60,6 +70,28 @@ entrarButton.addEventListener('click', async function(evento) {
 
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, senha)
+    var user = userCredential.user
+    const docRef = doc(db, "users", user.uid);
+
+    const data = {
+      name: user.displayName,
+      bithday: "",
+      gender: "",
+      state: "",
+      city: "",
+      telephone: "",
+      restrictions: []
+    };
+
+    setDoc(docRef, data)
+      .then(() => {
+        console.log("Document has been added successfully");
+        window.location = "../entrada"
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
     console.log(userCredential.user)
   } catch(error){
     console.log(error);
@@ -79,6 +111,15 @@ entrarButton.addEventListener('click', async function(evento) {
   }
 });
 
+const colRef = collection(db, "users");
+const colSnap = await getDocs(colRef);
+var jog = [];
+colSnap.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+  console.log(doc.id)
+  jog.push(doc.id);
+});
+
 //cadastrando com google
 const provider = new GoogleAuthProvider();
 googleLogin.addEventListener('click', function() {
@@ -88,7 +129,29 @@ googleLogin.addEventListener('click', function() {
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const token = credential.accessToken;
     const user = result.user;
-    console.log(user)
+    if (!jog.includes(user.uid)) {
+    const docRef = doc(db, "users", user.uid);
+    const data = {
+      name: user.displayName,
+      bithday: "",
+      gender: "",
+      state: "",
+      city: "",
+      telephone: "",
+      restrictions: []
+    };
+
+    setDoc(docRef, data)
+      .then(() => {
+        console.log("Document has been added successfully");
+        window.location = "../entrada"
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    }
+
+    console.log(user.uid)
     console.log("token")
     console.log(token)
   }).catch((error) => {
@@ -115,7 +178,6 @@ onAuthStateChanged(auth, user=> {
   if (user != null){
       console.log(user.email);
       console.log("Logado");
-      window.location = "entrada"
   } else {
       console.log("No User");
   }

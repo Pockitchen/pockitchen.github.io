@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' type='text/css' media='screen' href='../cc/cc.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"  crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous">
+
+    <title>Pockitchen - Cadastro de Receitas</title>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-menu">
+      <div class="hamburger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    <img src="../img/122_Sem_Título_20230510081812-removebg-preview 4.png" class= "img">
+    <a href="#" class="navbar-brand">Pokitchen</a>
+  </nav>
+
+  <div class="side-menu">
+    <ul>
+          <li><i class="fas fa-home"></i><a href="index.html">Home</a></li>
+          <li><i class="fas fa-bell"></i><a href="#">Notificações</a></li>
+          <li><i class="fas fa-cog"></i><a href="../user/index.html">Configurar</a></li>
+          <li><i class="fas fa-info-circle"></i><a href="../sobre/index.html">Sobre nos</a></li>
+          <li><i class="fas fa-utensils"></i><a href="../cadastroReceitas/index.html">cadastre suas receitas</a></li>
+          <li><i class="fas fa-question-circle"></i><a href="../cc/index.html">Complete seu cadastro</a></li>
+          <li><i class="fas fa-sign-out-alt"></i><a href="#">Sair</a></li>
+        </ul>
+  </div>
+ 
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+
+
+  <div class="container">
+      <form id="form">
+            <div id="cont_img">
+              <img src="../img/capi2.png" id="vara">
+            </div>
+          
+            <p id="titulo">Complete seu cadastro!</p>
+          
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" placeholder="Insira seu nome" required>
+            
+          
+            <label for="nasc">Data de nascimento:</label>
+            <input type="date" id="nasc" name="nasc" placeholder="00/00/0000" required>
+          
+          
+            <label for="generos">Gênero:</label>
+            <select name="generos" id="generos">
+              <option value="null">Nenhum/Não informar</option>
+              <option value="mas">Masculino</option>
+              <option value="fem">Feminino</option>
+            </select>
+           
+            
+            <label for="estado">Estado:</label>
+            <select id="estado" onchange="carregarCidades()" required>
+              <option value="">Selecione um estado</option>
+            </select>
+          
+            <br>
+          
+            <label for="cidade">Cidade:</label>
+            <select id="cidade" required>
+              <option value="">Selecione um estado primeiro</option>
+            </select>
+
+            <label for="foto-video">Adicione uma foto de perfil:</label>
+            <input type="file" id="file-input" required>
+            <label for="file-input" class="custom-file-upload">
+                  <i class="fas fa-cloud-upload-alt"></i> Escolher arquivo </label>
+          
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="telefone" name="telefone" placeholder="+55 (00)00000-0000" maxlength="11" required >
+            
+           
+           
+           
+        
+          
+            <br> <br>
+            <input type="submit" value="Cadastrar">
+          </form>
+          
+  </div>
+  <script src="../js/cc.js"></script>
+</body>
+</html>

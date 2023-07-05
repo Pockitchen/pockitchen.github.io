@@ -1,0 +1,330 @@
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  background: #f4f4f4;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: #E02437;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f4f4f4;
+  padding: 0.2%;
+}
+
+.navbar-brand {
+  text-decoration: none;
+  color: white;
+  grid-column-start: 3;
+  font-size:5vh;
+  -webkit-text-stroke: 1.125px white;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 20px;
+}
+
+.hamburger-menu {
+  width: 20px;
+  height: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  color: #f4f4f4;
+}
+
+.bar {
+  width: 100%;
+  height: 3px;
+  background: #f4f4f4;
+}
+.img {
+  width: 8.5vh;
+  height: 8.5vh;
+  margin-bottom: 1.5vh;
+  display: flex;
+  align-self: center;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #f4f4f4;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 9998;
+  border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+}
+
+.side-menu.active {
+  transform: translateX(0);
+}
+
+.side-menu ul {
+  list-style-type: none;
+  padding: 20px;
+}
+
+.side-menu li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Espaçamento entre o ícone e a palavra */
+}
+
+
+
+.side-menu a {
+  font-family: 'Josefin Sans', sans-serif;
+  color: #f4f4f4;
+  text-decoration: none;
+  font-size: 18px;
+}
+.side-menu li:hover {
+  background-color: #252424; /* Cor de fundo ao passar o mouse sobre o item do menu */
+
+}
+
+.side-menu li:hover a {
+  color: #E02437; /* Cor do texto ao passar o mouse sobre o item do menu */
+}
+.side-menu li:hover i {
+  color: #E02437; /* Cor do texto e do ícone ao passar o mouse sobre o item do menu */
+}
+
+/*banner do usuário*/
+
+#banner {
+  position: relative;
+    height: 15vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+#img_banner {
+    width: 100%;
+}
+
+#containt{
+  width: 55%;
+  margin: auto;
+  padding: 0px 40px;
+}
+#profile-picture{
+  background: #f4f4f4;
+  border: 8px solid #f4f4f4;
+  border-radius: 100px;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  margin-top: -40px;
+}
+
+#profile-picture>img{
+  width: 100%;
+}
+
+#user {
+  vertical-align: baseline;
+  color: #E02437;
+  font-size: 2em;
+  font-weight:700;
+}
+
+.bold{
+  font-weight: 900;
+}
+
+#bio{
+  font-size: 1.2em;
+}
+
+#recipe-list {
+  background-color: #e1e1e1;
+  padding: 20px 22.5%;
+  height: 40vh;
+}
+
+#s-r{
+  color: #E02437;
+  font-size: 2em;
+  font-weight:700;
+  margin: 0;
+}
+
+#s-r>img{
+  height: 30px;
+  margin-right: 10px;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fffefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #FC7831;
+  max-width: 400px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+/* Estilos para o botão de fechar o modal */
+.close {
+  color: #252424;
+  font-size: 24px;
+  font-weight: bold;
+  align-self: flex-end;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #E02437;
+}
+#edit{
+  padding: 10px 20px;
+    background-color: #fffefe;
+    color: #FC7831;
+    border: 1px solid #FC7831;
+    border-radius: 4px;
+}
+#edit:hover {
+  background-color: #FC7831;
+  color: #fffefe;
+}
+/* Estilos para o espaço cinza em volta da foto do usuário */
+.user-photo-container {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #ddd;
+}
+
+/* Estilos para a foto do usuário */
+#user-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Estilos para a legenda "Foto" */
+.photo-label {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #252424;
+}
+
+/* Estilos para o campo de upload de foto */
+.upload-input {
+  display: none;
+}
+
+.upload-label {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #fffefe;
+  color: #FC7831;
+  border: 1px solid #FC7831;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.upload-label:hover {
+  background-color: #FC7831;
+  color: #fffefe;
+}
+
+/* Estilos para o botão de remover foto */
+.remove-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #E02437;
+  color: #e1e1e1;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: background-color 0.3s;
+}
+
+.remove-button:hover {
+  background-color: #B21B2F;
+}
+
+/* Estilos para o formulário */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #252424;
+}
+
+input[type="text"],
+textarea {
+  padding: 8px;
+  border: 1px solid #252424;
+  border-radius: 4px;
+  border-color: #FC7831;
+  margin-bottom: 10px;
+  resize: none;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+button[type="submit"] {
+  padding: 10px 169px;
+  background-color:#E02437;
+  color: #fffefe;
+  border: none;
+  border-radius: 4px;
+ 
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+button[type="submit"]:hover {
+  background-color:  #FC7831;
+}
+
+@media only screen and (max-width: 768px) {
+
+  #containt{
+    width: 85%;
+    margin: auto;
+  }
+}

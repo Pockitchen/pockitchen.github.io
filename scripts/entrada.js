@@ -22,6 +22,6 @@ function deslogar() {
   alert("Usuário deslogado com sucesso!");
   logout()
   // Redirecionar para a página de login, por exemplo:
-  window.location.href = "../index.html";
+  window.location.href = "../login";
 }
   

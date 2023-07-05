@@ -1,5 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
+import {
+  getFirestore,
+} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import { getAuth,
         connectAuthEmulator,
         onAuthStateChanged,
@@ -22,7 +24,7 @@ const appSettings = {
 };
 
 export const app = initializeApp(appSettings)
-export const db = getDatabase(app)
+export const db = getFirestore(app);
 export const auth = getAuth(app);
 /* Logar usuário
 var email = "macaco@animal.kitten"
