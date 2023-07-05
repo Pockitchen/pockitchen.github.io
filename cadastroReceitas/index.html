@@ -47,9 +47,9 @@
 
 
 
+      
       <h1><i class="fas fa-utensils" style="color: #fc7831;"></i> Adicionar uma <br>receita</h1>
-
-      <div class="container">
+      <div id="container">
             <form>
                   <label for="nome-receita">Nome da Receita:</label>
                   <input type="text" id="nome-receita" name="nome-receita" placeholder="Digite nome da receita"
@@ -80,7 +80,7 @@
                         <div>
                               <label for="tempo-preparo">Tempo de Preparo:</label>
                               <input type="text" id="tempo-preparo" name="tempo-preparo"
-                                    placeholder="Digite o tempo de preparo da receita" required>
+                                    placeholder="Digite o tempo de preparo " required>
                         </div>
 
                         <div class="rend">
@@ -98,7 +98,10 @@
                   </div>
                   <br> <br>
             </form>
-            <button id="cadastrar">Cadastrar</button>
+            <a id="alerta"></a>
+            <br>
+            <br>
+            <button class="botao" id="cadastrar">Cadastrar</button>
       </div>
       <script type="module" src="../scripts/receitas_cadastro.js"></script>
 </body>

@@ -50,12 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
   
   document.getElementById("editForm").addEventListener("submit", function (event) {
     event.preventDefault();
-
-   
-    // Por exemplo, para obter o valor do nome e da bio:
-    var name = document.getElementById("name").value;
-    var bio = document.getElementById("bio").value;
-
     
     closeModal();
   });

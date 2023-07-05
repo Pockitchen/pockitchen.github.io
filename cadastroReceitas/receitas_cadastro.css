@@ -21,7 +21,7 @@ body {
     100% { background-position: 100% 50%; }
   }
 
-  .container {
+  #container {
     max-width: 600px;
     margin: 20px auto;
     padding: 40px;
@@ -56,7 +56,7 @@ body {
     resize: none;
     font-family: 'Josefin Sans', sans-serif;
   }
-  #cadastrar {
+  .botao {
     background-color: #E02437;
     color: #FFFFFF;
     border: none;
@@ -142,6 +142,10 @@ body {
   font-weight: bold;
 }
 
+.bold {
+  font-weight: bolder;
+}
+
 .navbar-menu {
   display: flex;
   align-items: center;
@@ -223,7 +227,7 @@ border-bottom-right-radius: 10px;
 .side-menu li:hover i {
   color: #E02437; /* Cor do texto e do ícone ao passar o mouse sobre o item do menu */
 }
-  #quantidade-pessoas
+  #quantidade
   {
     width: 30%;
   }
@@ -238,17 +242,20 @@ border-bottom-right-radius: 10px;
   }
   #tempo-preparo 
   {
-    width: 50%;
+    width: 75%;
   }
   .agrupar{
     display: grid;
     grid-gap: 10px; /* Espaçamento entre os elementos */
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr;
   }
   @media (max-width: 768px) {
     .grid-container {
       grid-template-columns: 1fr;
     }
+  }
+  #alerta{
+    color: #E02437;
   }
 
   @media screen and (max-width: 768px) {
@@ -260,3 +267,4 @@ border-bottom-right-radius: 10px;
       font-size: 24px;
     }
   }
+  

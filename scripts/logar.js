@@ -79,8 +79,10 @@ entrarButton.addEventListener('click', async function(evento) {
       gender: "",
       state: "",
       city: "",
+      picture: "",
       telephone: "",
-      restrictions: []
+      restrictions: [],
+      bio: 'Clique no botão de "Editar Usuário" para mudar sua bio.'
     };
 
     setDoc(docRef, data)
@@ -137,6 +139,7 @@ googleLogin.addEventListener('click', function() {
       gender: "",
       state: "",
       city: "",
+      picture: "",
       telephone: "",
       restrictions: []
     };
@@ -178,6 +181,7 @@ onAuthStateChanged(auth, user=> {
   if (user != null){
       console.log(user.email);
       console.log("Logado");
+      window.location = "../user"
   } else {
       console.log("No User");
   }

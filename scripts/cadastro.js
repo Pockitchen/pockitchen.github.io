@@ -101,7 +101,7 @@ onAuthStateChanged(auth, user=> {
   if (user != null){
       console.log(user.email);
       console.log("Logado");
-      window.location = "../entrada"
+      window.location = "../user"
   } else {
       console.log("No User");
   }
