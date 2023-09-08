@@ -1,1 +1,3 @@
 mudar de ir pra página de login e sair no botao da barra lateral
+tema escuro e tema claro
+o resto
