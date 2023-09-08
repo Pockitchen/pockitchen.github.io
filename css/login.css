@@ -48,11 +48,11 @@ input{
     margin-top: 10px;
 }
 
-#email{
+#emailLoginInput{
     margin-bottom: 70px;
 }
 
-#senha{
+#passwordLoginInput{
     margin-bottom: 10px;
 }
 
@@ -131,4 +131,50 @@ h2{
     border-radius: 20px;
     padding: 15px 15px;
     margin-left: 10px;
+}
+
+#send-email{
+    position: fixed;
+    top: 0;
+    background-color: rgba(0,0,0,.6);
+    width: 100%;
+    height: 100%;
+}
+
+#enviarEmailRedefinicaoSenha{
+    background: var(--red);
+    max-width: 100%;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 600;
+    padding: 14px 20px 10px;
+    border-radius: 20px;
+}
+
+#form-resend{
+    background-color: var(--f1);
+    margin: auto;
+    border-radius: 30px;
+    margin-top: 30vh;
+    border: 3px solid var(--red);
+    width: 550px;
+    padding: 20px 30px;
+}
+
+#form-resend input{
+    padding: 10px;
+    max-width: calc(100% - 20px);
+}
+
+#exit-form{
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    text-align: right;
+}
+
+#inputError{
+    color: #f00;
+    border-bottom: 3px solid #f00;
 }

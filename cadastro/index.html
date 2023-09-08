@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../common.css">
-    <link rel="stylesheet" href="../css/cadastro.css">
+    <link rel="stylesheet" href="/common.css">
+    <link rel="stylesheet" href="/css/cadastro.css">
     <title>Pockitchen - Cadastro</title>
     <script src="https://kit.fontawesome.com/0c7e529952.js" crossorigin="anonymous"></script>
-    <link rel="icon" type="image/svg" href="../images/logobranca.svg">
+    <link rel="icon" type="image/svg" href="/images/logobranca.svg">
 </head>
 <body>
     <div id="side-bar">
@@ -16,7 +16,7 @@
     <div id="separador">
         <div id="content">
             <div id="logo" class="ntext-select">
-                <img src="../images/logov.svg" id="header-logo">
+                <img src="/images/logov.svg" id="header-logo">
                 <a id="header-title">Pockitchen</a>
             </div>
             <h1 id="cadastre">Cadastre-se</h1>
@@ -25,20 +25,23 @@
             <label class="titleinput" for="email">Informe seu email:</label>
             <input name="email" id="email" type="email" placeholder="pockitchen@email.com">
             <label class="titleinput" for="senha1">Crie uma senha boa:</label>
-            <input name="senha1" id="senha2" type="password" placeholder="• • • • • • • • • • • • • • • •">
+            <input name="senha1" id="senha1" type="password" placeholder="• • • • • • • • • • • • • • • •">
             <label class="titleinput" for="senha2">Repita a senha:</label>
             <input name="senha2" id="senha2" type="password" placeholder="• • • • • • • • • • • • • • • •">
+            <a id="errorMSG"></a><br><br>
             <div id="loginmethods">
-                <div id="logar" class="h-pointer ntext-select">ENTRAR</div>
+                <div id="cadastrar" class="h-pointer ntext-select">ENTRAR</div>
                 <h2>OU</h2>
-                <div id="logar-google" class="h-pointer ntext-select"><img src="../images/google_logo.png">ENTRAR COM CONTA GOOGLE</div>
+                <div id="cadastrar-google" class="h-pointer ntext-select"><img src="/images/google_logo.png">ENTRAR COM CONTA GOOGLE</div>
             </div>
         </div>
         <div id="cadastro">
             <div id="cad-box">
-                Já tem cadastro? <div id="cad-button" class="h-pointer ntext-select" onclick="location.href='../login'">Entre na sua conta</div>
+                Já tem cadastro? <div id="cad-button" class="h-pointer ntext-select" onclick="location.href='/login'">Entre na sua conta</div>
             </div>
         </div>
     </div>
 </body>
+<script src="/scripts/cadastro.js" type="module"></script>
+<script src="/js/lateral_bar.js" type="module"></script>
 </html>

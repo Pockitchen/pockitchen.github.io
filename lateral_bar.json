@@ -1,0 +1,25 @@
+{
+    "pages":[
+        {
+            "icon": "house",
+            "text": "Página Inicial",
+            "link": "/"
+        },{
+            "icon": "user",
+            "text": "Meu Perfil",
+            "link": "/user"
+        },{
+            "icon": "heart",
+            "text": "Minhas Receitas Curtidas",
+            "link": "/user/#favourite-recipes"
+        },{
+            "icon": "utensils",
+            "text": "Cadastrar Nova Receita",
+            "link": "home"
+        },{
+            "icon": "circle-check",
+            "text": "Completar Cadastro",
+            "link": "home"
+        }
+    ]
+}

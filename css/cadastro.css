@@ -49,6 +49,16 @@ input{
     margin-bottom: 30px;
 }
 
+#senha2{
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+#errorMSG{
+    color: red;
+    border-bottom: 3px solid red;
+}
+
 label{
     font-size: 1.2em;
 }
@@ -76,7 +86,7 @@ h2{
     align-items: center;
 }
 
-#logar{
+#cadastrar{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,7 +97,7 @@ h2{
     border-radius: 20px;
 }
 
-#logar-google{
+#cadastrar-google{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -99,7 +109,7 @@ h2{
     border-radius: 20px;
 }
 
-#logar-google img{
+#cadastrar-google img{
     width: 40px;
 }
 
