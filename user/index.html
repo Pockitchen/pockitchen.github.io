@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../common.css">
+    <link rel="stylesheet" href="../css/perfil.css">
+    <title>Pockitchen</title>
+    <script src="https://kit.fontawesome.com/0c7e529952.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/svg" href="../images/logobranca.svg">
+</head>
+<body>
+    <header>
+        <div id="header-div" class="ntext-select">
+            <img src="../images/logobranca.svg" id="header-logo">
+            <a id="header-title">Pockitchen</a>
+        </div>
+        <div id="side-bar">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+    <div id="ilustrative-image"></div>
+    <div id="corpo">
+        <img id="profile-picture" src="../images/profile-picture-padrao.png">
+        <div id="user-info">
+            <a id="user-name">Nome do usuário</a>
+            <a style="grid-area: seguidores;">Seguidores</a>
+            <a style="grid-area: seguindo;">Seguindo</a>
+            <div id="edit-user-btn" class="edit-btn ntext-select h-pointer" style="grid-area: edit-user;"><a>Editar Perfil</a></div>
+            <a style="grid-area: nseguidores;">n1</a>
+            <a style="grid-area: nseguindo;">n2</a>
+        </div>
+        <a id="user-bio">Mussum Ipsum, cacilds vidis litro abertis.  Detraxit consequat et quo num tendi nada. Praesent malesuada urna nisi, quis volutpat erat hendrerit non. Nam vulputate dapibus. Admodum accumsan disputationi eu sit. Vide electram sadipscing et per. Per aumento de cachacis, eu reclamis.</a>
+    </div>
+    <div id="recipes-view">
+        <div id="favourite-recipes">
+            <h2>Receitas Favoritas</h2>
+            <div class="recipes-ordener">
+                <div class="recipe-sample">
+                    <img src="../images/fundo_ingredientes.jpg">
+                    <div>
+                        <a class="recipe-name">Nome</a>
+                        <a class="recipe-unity"><i class="fa-solid fa-pizza-slice"></i></a>
+                        <a class="recipe-quantity">3</a>
+                    </div>
+                </div>
+                <div class="recipe-sample">
+                    <img src="../images/fundo_ingredientes.jpg">
+                    <div>
+                        <a class="recipe-name">Nome</a>
+                        <a class="recipe-unity"><i class="fa-solid fa-pizza-slice"></i></a>
+                        <a class="recipe-quantity">3</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="your-recipes">
+            <div id="yr-top">
+                <h2>Minhas Receitas</h2>
+                <a class="h-pointer">+ Adicionar nova receita</a>
+            </div>
+            
+            <div class="recipes-ordener">
+            </div>
+        </div>
+    </div>
+    <div id="edit-user-form hidden">
+        <div id="form">
+            <p id="exit-form"><i class="fa-solid fa-xmark h-pointer"></i></p>
+            <h2>Editar usuário</h2>
+            <div class="double-column">
+                <div style="display: flex; justify-content: center; flex-direction: column;">
+                    <img id="pp-edit-img" src="../images/profile-picture-padrao.png">
+                    <div id="edit-pp-btn" class="edit-btn ntext-select h-pointer"><a>Mandar Foto</a></div>
+                </div>
+                <div style="display: flex; flex-direction: column; padding-top: 40px;">
+                    <label for="name">Nome:</label>
+                    <input name="name" id="name" type="text" placeholder="Digite seu nome">
+                    <br>
+                    <label for="bio">Bio:</label>
+                    <textarea name="bio" id="bio" rows="5" placeholder="Fale um pouco sobre você"></textarea>
+                </div style="display: flex; justify-content: center; flex-direction: column;">
+                </div>
+                <div id="send-info-btn" class="h-pointer ntext-select ">Salvar</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

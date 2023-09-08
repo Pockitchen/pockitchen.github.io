@@ -1,0 +1,134 @@
+#separador {
+    display: grid;
+    grid-template-columns: 1fr 600px;
+}
+
+#content{
+    padding: 0px 340px;
+    padding-top: 10px;
+}
+
+#cadastro{
+    background-image: url(../images/fundo_login.png);
+    width: 600px;
+    height: 100vh;
+    background-size: 100% 100%;
+}
+
+#logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    transform: scale(1.8);
+    margin: 60px 0px;
+    margin-bottom: 70px;
+}
+
+#logo >*{
+    /*filter: invert(var(--i-logo));*/
+    color: var(--red)
+}
+
+#bemvindo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 300;
+    color: var(--orange);
+}
+
+input{
+    width: 100%;
+    height: 20px;
+    padding: 10px;
+    border: none;
+    background-color: var(--t2);
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+#email{
+    margin-bottom: 70px;
+}
+
+#senha{
+    margin-bottom: 10px;
+}
+
+label{
+    font-size: 1.2em;
+}
+
+#forgot-password{
+    color: #4c8bf5;
+    border-bottom: #4c8bf5 2px solid;
+}
+
+#loginmethods{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+#loginmethods>div{
+    color: #fff;
+}
+
+h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--red);
+    font-weight: 900;
+    font-size: 1.2em;
+    padding: 18px 40px;
+    border-radius: 20px;
+}
+
+#logar-google{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    background-color: #4c8bf5;
+    gap: 10px;
+    font-weight: 900;
+    padding: 15px 30px;
+    border-radius: 20px;
+}
+
+#logar-google img{
+    width: 40px;
+}
+
+#cad-box{
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    border-radius: 30px;
+    padding: 20px;
+    position: absolute;
+    bottom: 0px;
+    margin: 50px;
+}
+
+#cad-button{
+    background-color: #4c8bf5;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 20px;
+    padding: 15px 15px;
+    margin-left: 10px;
+}
