@@ -12,7 +12,9 @@
     flex-direction: column;
     width: 100%;
 }
-items
+items{
+    align-self: flex-end;
+}
 
 .select-image {
     max-width: 400px; 
@@ -20,6 +22,7 @@ items
 
 .select-image img {
     width: 100%;
+    border-radius: 10px;
 }
 
 .thumbnails {
