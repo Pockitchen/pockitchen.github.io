@@ -1,0 +1,104 @@
+input, textarea{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: var(--t2);
+    border-radius: 12px;
+    margin-top: 2px;
+    margin-bottom: 16px;
+    resize:initial;
+    outline: none;
+}
+
+.iblank {
+    padding: 0px;
+    border: none;
+    background-color: rgba(0,0,0,0);
+    border-radius: 0px;
+    margin: 0px;
+}
+
+.iback-div{
+    padding: 10px;
+    border: none;
+    background-color: var(--t2);
+    border-radius: 12px;
+}
+
+#titulo{
+    color: var(--red);
+    text-align: center;
+}
+
+#corpo{
+    width: 80%;
+    max-width: 1000px;
+    margin: auto
+}
+
+#recipe-time{
+    display: flex;
+    align-content: center;
+}
+
+#recipe-time a{
+    font-size: 1em;
+    font-weight: bolder;
+    margin: 0px 3px;
+    margin-top: -2px;
+}
+
+#performance{
+    padding-left: 15px;
+    display: flex;
+    align-content: center;
+}
+
+#recipe-tag{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    row-gap: 14px;
+}
+
+#recipe-tags{
+    max-width: 20%;
+}
+
+.tag{
+    display: flex;
+    font-size: 1em;
+    font-weight: normal;
+    border-radius: 12px;
+    padding: 4px 8px;
+    margin: -4px 0px;
+    margin-right: 6px;
+}
+
+.fa-xmark{
+    transform: scale(.7);
+    margin-left: 2px;
+    margin-right: -2px;
+}
+
+#send-btn{
+    background: var(--red);
+    text-align: center;
+    font-size: 1.3em;
+    padding: 12px 20px;
+    width: fit-content;
+    margin: auto;
+    margin-top: 60px;
+    border-radius: 16px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

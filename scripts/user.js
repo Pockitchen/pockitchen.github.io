@@ -54,6 +54,7 @@ async function puxar(u) {
 
 const edit_form = document.getElementById('edit-user-form');
 document.getElementById("edit-user-btn").addEventListener("click", function(){
+  console.log("aaa")
   fadeIn(edit_form)
 })
 

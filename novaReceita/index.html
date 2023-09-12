@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/common.css">
+    <link rel="stylesheet" href="/css/novaReceita.css">
+    <title>Pockitchen - Login</title>
+    <script src="https://kit.fontawesome.com/0c7e529952.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/svg" href="/images/logobranca.svg">
+</head>
+<body>
+    <header>
+        <div id="header-div" class="ntext-select">
+            <img src="/images/logobranca.svg" id="header-logo">
+            <a id="header-title">Pockitchen</a>
+        </div>
+        <div id="side-bar">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+    <h1 id="titulo">Cadastrar uma Nova Receita</h1>
+    <div id="corpo">
+        <label for="recipe-name">Nome da Receita</label>
+        <input id="recipe-name">
+        <label for="recipe-description">Descrição da Receita</label>
+        <textarea id="recipe-description" rows="3"></textarea>
+        <div style="display: flex; gap: 46px;">
+            <div>
+                <label for="recipe-tools">Utensílios (separe com virgula)</label>
+                <input id="recipe-tools">
+            </div>
+            <div>
+                <label for="recipe-ingredients">Ingredientes (separe com virgula)</label>
+                <input id="recipe-ingredients">
+            </div>
+        </div>
+        <label for="recipe-method">Modo de Preparo</label>
+        <textarea id="recipe-method" rows="5"></textarea>
+        <div style="display: grid; gap:16px; grid-template-columns: 1fr 1fr 3fr;">
+            <div>
+                <label for="recipe-time-hours">Tempo de Preparo</label>
+                <div id="recipe-time" class="iback-div">
+                    <input id="recipe-time-hours" type="number" style="text-align: right;" class="iblank" value="00">
+                    <a>:</a>
+                    <input id="recipe-time-minutes" type="number" class="iblank" value="00">
+                </div>
+            </div>
+            <div>
+                <label for="recipe-performance">Quanto rende?</label>
+                <div id="performance" class="iback-div">
+                    <input id="recipe-performance" class="iblank" value="0 pessoas">
+                </div>
+            </div>
+            <div>
+                <label for="recipe-ingredients">Marcadores</label>
+                <div id="recipe-tag" class="iback-div">
+                    <a class="tag">Fitness<i class="fa-solid fa-xmark h-pointer"></i></a>
+                    <input id="recipe-tags" class="iblank" placeholder="+ marcador">
+                </div>
+            </div>
+        </div>
+        <div id="send-btn" class="h-pointer">Enviar Receita</div>
+    </div>
+</body>
+<script src="/js/lateral_bar.js" type="module"></script>
+<script src="/scripts/novaReceita.js" type="module"></script>
+</html>

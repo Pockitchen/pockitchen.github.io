@@ -15,11 +15,11 @@
         },{
             "icon": "utensils",
             "text": "Cadastrar Nova Receita",
-            "link": "home"
+            "link": "/home"
         },{
             "icon": "circle-check",
             "text": "Completar Cadastro",
-            "link": "home"
+            "link": "/home"
         }
     ]
 }
