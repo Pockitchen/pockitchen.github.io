@@ -1,6 +1,6 @@
 .container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     width: 100%;
     height: calc(100vh - 85px);
@@ -12,6 +12,7 @@
     flex-direction: column;
     width: 100%;
 }
+items
 
 .select-image {
     max-width: 400px; 
