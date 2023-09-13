@@ -1,13 +1,10 @@
 /* Adicionei alguns estilos para melhorar a aparência */
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
+
+.header-container {
+    display: flex;
+    align-items: center;
 }
-
-
 
 .container {
     display: flex;
