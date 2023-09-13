@@ -40,7 +40,7 @@ enviarRedefinicao.addEventListener('click', function() {
   event.preventDefault();
   var email = document.getElementById('EmailRedefinicaoSenha').value
   sendPasswordResetEmail(auth, email).then(() => {
-    alert(`Foi enviada um email para o endereço ${email} para redefinir sua senha. Confira na caixa de entrada principal, social e span.`)
+    alert(`Foi enviado um email para o endereço ${email} para redefinir sua senha. Confira na caixa de entrada principal, social e span.`)
       fadeOut(forgotPasswordDialog, 5)
   }).catch(error => {
     const errorOut = document.getElementById('senhaRedefinicaoErro')
@@ -144,13 +144,15 @@ googleLogin.addEventListener('click', function() {
       city: "",
       picture: "",
       telephone: "",
-      restrictions: []
+      favourite: [],
+      restrictions: [],
+      bio: 'Clique no botão de "Editar Usuário" para mudar sua bio.'
     };
 
     setDoc(docRef, data)
       .then(() => {
-        console.log("Document has been added successfully");
-        window.location = "../entrada"
+        //console.log("Document has been added successfully");
+        window.location = "/user"
       })
       .catch((error) => {
         console.log(error);
@@ -184,7 +186,7 @@ onAuthStateChanged(auth, user=> {
   if (user != null){
       console.log(user.email);
       console.log("Logado");
-      window.location = "../user"
+      window.location = "/user"
   } else {
       console.log("No User");
   }

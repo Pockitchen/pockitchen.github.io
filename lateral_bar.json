@@ -15,7 +15,7 @@
         },{
             "icon": "utensils",
             "text": "Cadastrar Nova Receita",
-            "link": "/home"
+            "link": "/novaReceita"
         },{
             "icon": "circle-check",
             "text": "Completar Cadastro",

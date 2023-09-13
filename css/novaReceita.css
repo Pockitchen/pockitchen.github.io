@@ -54,7 +54,7 @@ input, textarea{
     align-content: center;
 }
 
-#recipe-tag{
+#recipe-tag, #tag-list{
     display: flex;
     flex-wrap: wrap;
     max-width: 100%;
@@ -73,6 +73,7 @@ input, textarea{
     padding: 4px 8px;
     margin: -4px 0px;
     margin-right: 6px;
+    color: var(--t1);
 }
 
 .fa-xmark{
@@ -101,4 +102,56 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+.vegano{
+    background: #41AB55;
+}
+.glutem{
+    background: #DBA759;
+}
+.lactose{
+    background: #5271FF;
+}
+.acucar{
+    background: #CB6CE6;
+}
+.fitness{
+    background: #F43232;
+}
+.festas{
+    background: #DFC24D;
+}
+.comemorativas{
+    background: #00690A;
+}
+
+#tag-search{
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    display: none;
+    position: absolute;
+    padding: 10px;
+    border: none;
+    background-color: var(--f2);
+    border-radius: 12px;
+}
+
+.stag-space{
+    padding: 10px;
+    border-radius: 6px;
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    gap: 10px;
+}
+
+.stag-selected{
+    background: rgba(255, 255, 255, .1); 
+}
+
+.stag-name{
+    margin: auto 0px;
+    padding: 5px;
+    border-radius: 4px;
 }

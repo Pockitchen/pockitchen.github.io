@@ -29,6 +29,7 @@ onAuthStateChanged(auth, (user) => {
 
   } else {
     console.log("No User");
+    window.location = "/login"
   }
 });
 
@@ -59,6 +60,10 @@ document.getElementById("edit-user-btn").addEventListener("click", function(){
 })
 
 document.getElementById("exit-form-btn").addEventListener("click", function(){
+  fadeOut(edit_form)
+})
+
+document.getElementById("send-info-btn").addEventListener("click", function(){
   fadeOut(edit_form)
 })
 
