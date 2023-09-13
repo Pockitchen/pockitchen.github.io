@@ -17,10 +17,10 @@ body {
 }
 
 .left-side {
-    flex: 1;
+    flex: 0.5;
     display: flex;
     flex-direction: column;
-  
+    align-items: center;
 }
 
 .items {
@@ -47,7 +47,7 @@ body {
 .right-side {
     flex: 1;
     padding: 20px;
-    text-align: center;
+    
 }
 
 h1 {
