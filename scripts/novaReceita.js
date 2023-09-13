@@ -12,7 +12,7 @@ const tags = [
         "desc": "Receitas de pratos feitos para datas especiais, como Natal, Páscoa e festa junina."
     },{
         "tag": "festas",
-        "name": "Para Datas Comemorativas",
+        "name": "Para Festas",
         "desc": "Receitas tradicionalmente feitas para festas e que atendem uma grande quantidade de pessoas."
     },{
         "tag": "acucar",
@@ -35,17 +35,17 @@ const tags = [
 search.style.width = father.clientWidth - 20 + "px"
 
 bar.addEventListener('keyup', (e) => {
-    console.log(e)
+    // console.log(e)
     if (bar.value == null || bar.value.trim() === ''){
         search.style.display = "none";
     } else {
         if (e.key == "ArrowUp"){
-            console.log("up")
+            // console.log("up")
             if (s==0){
                 s = disponivel-1
             } else s--
         } else if (e.key == "ArrowDown"){
-            console.log("up")
+            // console.log("up")
             if (s==disponivel-1){
                 s = 0
             } else s++
@@ -55,18 +55,18 @@ bar.addEventListener('keyup', (e) => {
         } else {
             s = 0;
         }
-        console.log(s)
+        //console.log(s)
         search.style.display = "block";
-        render()
+        renderTags()
     }
 })
 bar.addEventListener('change', (e) => {
     if (bar.value == null || bar.value.trim() === ''){
-        console.log("vazio")
+        //console.log("vazio")
         search.style.display = "none";
     } else {
         search.style.display = "block";
-        render()
+        renderTags()
     }
 })
 var selected_tag = [false,false,false,false,false,false,false];
@@ -74,7 +74,7 @@ var s_index;
 var s = 0;
 var disponivel = 0;
 
-function render(){
+function renderTags(){
     search.innerHTML = ""
     disponivel = 0;
     var d = false
@@ -106,11 +106,11 @@ function render(){
         var item = document.querySelectorAll(".stag-space")
         item.forEach(b=>{
             b.addEventListener("click", function(){
-                console.log(b)
+                // console.log(b)
                 event.preventDefault()
                 selected_tag[b.id] = true
                 bar.value = ""
-                render()
+                renderTags()
             })
             b.addEventListener("mouseover", function(){
                 s_index = (document.querySelectorAll(".stag-selected")[0].id)
@@ -132,11 +132,11 @@ function render(){
             var x = document.querySelectorAll(".fa-xmark")
             x.forEach(b=>{
                 b.addEventListener("click", function(){
-                    console.log(b)
+                    // console.log(b)
                     var id = parseInt(b.id.replace("remove",""))
-                    console.log(id)
+                    // console.log(id)
                     selected_tag[id] = false
-                    render()
+                    renderTags()
                 })
             })
         }
@@ -152,3 +152,96 @@ function render(){
         `
     }
 }
+
+import {
+    collection,
+    getDoc,
+    setDoc,
+    addDoc,
+    getDocs,
+    doc,
+} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import {
+    onAuthStateChanged,
+} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+import {
+    ref,
+    getDownloadURL,
+    uploadBytesResumable,
+} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js";
+import { app, auth, db, storage } from "./firebaseAPI.js";
+
+var userid;
+
+onAuthStateChanged(auth, (user) => {
+    if (user != null) {
+        console.log(user.uid);
+        console.log("Logado");
+        userid = user.uid;
+    } else {
+        console.log("No User");
+        document.getElementById("login-alert").style.display = "block";
+        //window.location = "/login"
+    }
+});
+  
+function valor(id){
+    //console.log(document.getElementById(id).value)
+    return document.getElementById(id).value;
+}
+
+function separateComma(txt){
+    if (txt.includes(",")){
+        var text = txt.split(",").filter(word => word.trim().length > 0);
+    } else {
+        var text = [txt]
+    }
+    return text
+}  
+
+let enviar = document.getElementById("send-btn")
+enviar.addEventListener("click",() => {
+  
+    //console.log("click")
+    
+    const data = {
+        "name": valor("recipe-name"),
+        "description": valor("recipe-description"),
+        "tools": separateComma(valor("recipe-tools")),
+        "ingredients": separateComma(valor("recipe-ingredients")),
+        "recipe-time-hours": valor("recipe-time-hours"),
+        "recipe-time-minutes": valor("recipe-time-minutes"),
+        "recipe-performance": valor("recipe-performance"),
+        "tags": selected_tag,
+        "user": userid
+    };
+    console.log(data)
+
+    const alerta = document.getElementById("inputError")
+    if (valor("recipe-name").trim().length <= 0){
+        alerta.innerHTML = "Por favor, insira um <span class='bold'>nome válido</span> para a receita."
+    } else if (valor("recipe-tools").length <= 0){
+        alerta.innerHTML = "Por favor, insira as <span class='bold'>ferramentas</span> necessárias para fazer a sua receita."
+    } else if (valor("recipe-ingredients").length <= 0){
+        alerta.innerHTML = "Por favor, insira os <span class='bold'>ingredientes</span> necessários para fazer a sua receita."
+    } else if (parseInt(valor("recipe-time-hours")) <= 0&&parseInt(valor("recipe-time-minutes")) <= 0){
+        alerta.innerHTML = "Por favor, insira o <span class='bold'>tempo</span> necessário para fazer a sua receita."
+    } else if (parseInt(valor("recipe-performance")) <= 0){
+        alerta.innerHTML = "Por favor, insira <span class='bold'>quantas pessoas</span> a sua receita serve."
+    } else {
+        alerta.innerHTML = ""
+  
+    const docRef = collection(db, "recipes");
+    addDoc(docRef, data)
+    .then((doc) => {
+        console.log(doc.id)
+        alert("A receita foi adicionada com sucesso!")
+        //window.location = "../";
+    }).catch(console.error)
+    .catch(error => {
+        console.log(error);
+    })
+    
+    } 
+  }
+)

@@ -28,9 +28,6 @@ window.addEventListener("load", function(){
         pages = json.pages
 
         theme()
-    
-    
-    console.log(pages[1].icon)
 
     this.document.getElementById("bar-space").innerHTML = `
     <div id="lateral-bar">

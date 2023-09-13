@@ -50,7 +50,8 @@
             <div>
                 <label for="recipe-performance">Quanto rende?</label>
                 <div id="performance" class="iback-div">
-                    <input id="recipe-performance" class="iblank" value="0 pessoas">
+                    <input id="recipe-performance" class="iblank" value="0">
+                    <label for="recipe-performance">pessoas</label>
                 </div>
             </div>
             <div>
@@ -64,7 +65,19 @@
                 </div>
             </div>
         </div>
+        <br>
+        <a id="inputError"></a>
         <div id="send-btn" class="h-pointer">Enviar Receita</div>
+    </div>
+    <div id="login-alert" class="alert-background" style="display: none;">
+        <div id="form-resend">
+            <p>Você precisa estar logado(a) para poder enviar uma receita!</p>
+            <p>Vá para a <span class="orange-span">página de login</span> para entrar com sua conta e volte nessa página para continuar  a registrar sua receita.</p>
+            <div>
+                <div id="goToLogin" class="h-pointer ntext-select" onclick="location.href='/login'">Entrar na minha conta / Me Registrar</div>
+                <a class="alink" href="/">Continuar só vendo receitas.</a>
+            </div>
+        </div>
     </div>
 </body>
 <script src="/js/lateral_bar.js" type="module"></script>

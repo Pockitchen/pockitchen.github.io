@@ -115,6 +115,14 @@ input{
     outline: none;
 }
 
+.red-span{
+    color: var(--red)
+}
+
+.orange-span{
+    color: var(--orange)
+}
+
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: var(--t1);
     opacity: .3; /* Firefox */
@@ -229,4 +237,16 @@ input{
     display: flex;
     flex-direction: row-reverse;
     transition: 3s;
+}
+
+.alink{
+    color: royalblue;
+}
+
+.alert-background{
+    position: fixed;
+    top: 0;
+    background-color: rgba(0,0,0,.6);
+    width: 100%;
+    height: 100%;
 }
