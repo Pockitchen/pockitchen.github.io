@@ -1,10 +1,10 @@
-// Função para buscar os dados da API e criar os indicadores e slides do carrossel
+// Função para buscar os dados da API e criar os slides do carrossel
 function fetchRecipes() {
     fetch('https://raw.githubusercontent.com/danielcta/receitasAPI/main/pockitchen-receitas/recipes.json')
         .then(response => response.json())
         .then(data => {
-            const carouselIndicators = document.querySelector('.carousel-indicators');
             const carouselInner = document.querySelector('.carousel-inner');
+            const carouselIndicators = document.querySelector('.carousel-indicators');
 
             data.forEach((recipe, index) => {
                 const indicatorClass = index === 0 ? 'active' : '';
@@ -32,5 +32,5 @@ function fetchRecipes() {
         .catch(error => console.error('Erro ao buscar os dados da API:', error));
 }
 
-// Chame a função para buscar os dados e criar os indicadores e slides quando a página carregar
+// Chame a função para buscar os dados e criar os slides quando a página carregar
 document.addEventListener('DOMContentLoaded', fetchRecipes);
