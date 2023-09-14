@@ -21,6 +21,20 @@ import {
   import { fadeIn, fadeOut } from "../js/animations.js";
   
   var userid = "";
+
+  function separateComma(txt){
+    if (txt.includes(",")){
+        var text = txt.split(",").filter(word => word.trim().length > 0);
+    } else {
+        var text = [txt]
+    }
+    text.forEach((e,i)=>{
+      if (e==0){
+        text[i] = false
+      } else text[i]=true
+    })
+    return text
+}
   
   onAuthStateChanged(auth, (user) => {
     if (user != null) {
@@ -33,10 +47,22 @@ import {
       //window.location = "/login"
     }
   });
+  const urlParams = new URLSearchParams(window.location.search);
+  const pesquisa = urlParams.get('search')
+  const marcadores = separateComma(urlParams.get('tags'))
+  console.log(pesquisa)
+  console.log(marcadores)
+  if(!urlParams.has('search')){
+    window.location = "/"
+  }
+
+
+
   const collectionRef = collection(db, "recipes");
-  const q = query(collectionRef, where("recipe-performance", ">=", "1"));
+  const q = query(collectionRef,where("name", ">=", pesquisa), where('name', '<=', pesquisa+ '\uf8ff'), where("tags","==",marcadores));
+  // 
   
-  const docSnap = await getDocs(collectionRef);
+  const docSnap = await getDocs(q);
   
   docSnap.forEach((doc) => {
     // console.log(doc.data());
@@ -49,6 +75,7 @@ import {
     .catch((error) => {
         imageURL = "/images/error-capivara.png"
     }).then(()=>{
+      console.log(r.tags)
         document.getElementById("corpo").innerHTML+=`
         <div class="recipe">
             <div class="recipe-top">
@@ -133,7 +160,6 @@ import {
         pesquisar()
       } else console.log("vazio")
   })
-  console.log(document.getElementById("filter-button").offsetLeft)
   document.getElementById("filter-page").style.top = document.getElementById("filter-button").offsetTop+document.getElementById("filter-button").offsetHeight +"px"
 var show =false
   document.getElementById("filter-button").addEventListener("click",function(){

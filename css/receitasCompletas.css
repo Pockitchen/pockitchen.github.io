@@ -1,19 +1,18 @@
-/* Adicionei alguns estilos para melhorar a aparência */
-
-
 .header-container {
     display: flex;
     align-items: center;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
+    margin-top: 2.5%;
+    display: grid;
+    grid-template-columns: 10% 40% 40% 10%;
     align-items: center;
     min-height: 76vh;
 }
 
 .left-side {
+    grid-column-start: 2;
     flex: 0.5;
     display: flex;
     flex-direction: column;
@@ -42,16 +41,141 @@
 }
 
 .right-side {
+    grid-column-start: 3;
     flex: 1;
-    padding: 20px;
+    padding: 40px;
     
 }
 
-h1 {
-    font-size: 32px;
+.titles {
+    font-size: 40px;
+    color: var(--red);
+    margin: 0;
+}
+
+
+h2 {
+    font-size: 25px;
 }
 
 p {
     font-size: 16px;
-    color: #666;
+    color: var(--text_gray)
+}
+
+.destacados {
+    display: flex;
+    align-items: end;
+    gap: 1vh;
+    padding: 3px;
+    border-radius: 7px;
+    color: white;
+    margin-bottom: 2vh;
+}
+
+#porcoes {
+    background: var(--orange);
+    width: 18vh;
+}
+
+#tempo {
+    background: var(--blue);
+    width: 38vh;
+}
+
+ul {
+    list-style: inside;
+}
+
+ul li {
+    background: transparent;
+    margin-top: 0.5vh;
+    color: var(--text_gray)
+}
+
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+.comments {
+    display: flex;
+    justify-content: center;
+}
+
+.container_comments {
+    background: var(--f2);
+    width: 95%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.subcontainer_comments {
+    width: 99%;
+    margin: 1vh;
+    border-radius: 5px;
+    background: var(--f1);
+    display: grid;
+    grid-template-columns: 10% 60% 10% 10% 10%;
+}
+
+.comment_text {
+    background: transparent;
+    border:none;
+    color: var(--t2);
+    font-size: 25px;
+    grid-column-start: 2;
+}
+
+#pfp {
+    grid-column-start: 1;
+    background-color: var(--t1);
+    color: var(--f2);
+    border-radius: 100%;
+    text-align: center;
+    width: 50%;
+    height: 62.5px;
+    margin: 2vh;
+}
+
+#grande {
+    font-size: 8vh;
+}
+
+#grande2 {
+    font-size: 8vh;
+}
+
+#grande3 {
+    font-size: 8vh;
+}
+
+#addlink {
+    grid-column-start: 3;
+    color: var(--t2);
+    display: flex;
+    justify-content: flex-end;
+    align-self: center;
+}
+
+#addfile {
+    grid-column-start: 4;
+    color: var(--t2);
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+#submit {
+    grid-column-start: 5;
+    color: var(--t2);
+    display: flex;
+    justify-content: center;
+    align-self: center;
 }
