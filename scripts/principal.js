@@ -92,3 +92,13 @@ import {
     })
     return valor
   }
+
+  function pesquisar(){
+    console.log(document.getElementById("search-bar-input").value)
+  }
+
+document.getElementById("search-bar-input").addEventListener("keyup", (e)=>{
+  if (e.key == "Enter"){
+    pesquisar()
+  }
+})
