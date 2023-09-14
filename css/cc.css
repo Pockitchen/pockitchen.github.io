@@ -89,38 +89,13 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-#tag-search{
-    user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    display: none;
-    position: absolute;
-    padding: 10px;
-    border: none;
-    background-color: var(--f2);
-    border-radius: 12px;
-}
-
-.stag-space{
-    padding: 10px;
-    border-radius: 6px;
-    display: grid;
-    grid-template-columns: 2fr 5fr;
-    gap: 10px;
-}
-
-.stag-selected{
-    background: rgba(255, 255, 255, .1); 
-}
-
-.stag-name{
-    margin: auto 0px;
-    padding: 5px;
-    border-radius: 4px;
-}
-
 .multiple{
     display: flex;
     align-content: space-between;
     gap: 36px;
+}
+
+#restrictions-tags{
+    border: 3px solid var(--red);
+    border-radius: 10px;
 }

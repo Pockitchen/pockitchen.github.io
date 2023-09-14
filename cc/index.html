@@ -50,12 +50,25 @@
         </div>
         <div>
             <label for="user-restrictions">Minhas Restrições Alimentícias</label>
-            <div id="restrictions-tag" class="iback-div">
-                <div id="tag-list">
-                </div>
-                <input id="restrictions-tags" class="iblank" placeholder="+ restrição">
-            </div>
-            <div id="tag-search">
+            <div id="restrictions-tags">
+                <label class="restrictions-tag ntext-select h-pointer" for="lactose">
+                    <input type="checkbox" id="lactose">Lactose
+                </label>
+                <label class="restrictions-tag ntext-select h-pointer" for="acucar">
+                    <input type="checkbox" id="acucar">Açúcar
+                </label>
+                <label class="restrictions-tag ntext-select h-pointer" for="lactose">
+                    <input type="checkbox" id="nozes">Nozes
+                </label>
+                <label class="restrictions-tag ntext-select h-pointer" for="gluten">
+                    <input type="checkbox" id="gluten">Gluten
+                </label>
+                <label class="restrictions-tag ntext-select h-pointer" for="cafeina">
+                    <input type="checkbox" id="cafeina">Cafeína
+                </label>
+                <label class="restrictions-tag ntext-select h-pointer" for="histamina">
+                    <input type="checkbox" id="histamina">Histamina
+                </label>
             </div>
         </div>
         <div id="send-btn" class="h-pointer">Enviar Receita</div>
@@ -64,5 +77,5 @@
     </div>
 </body>
 <script src="/js/lateral_bar.js" type="module"></script>
-<script src="/scripts/novaReceita.js" type="module"></script>
+<script src="/scripts/cc.js" type="module"></script>
 </html>
