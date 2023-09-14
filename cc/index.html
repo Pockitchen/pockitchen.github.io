@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/common.css">
+    <link rel="stylesheet" href="/css/cc.css">
+    <title>Pockitchen - Login</title>
+    <script src="https://kit.fontawesome.com/0c7e529952.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/svg" href="/images/logobranca.svg">
+</head>
+<body>
+    <div id="bar-space"></div>
+    <header>
+        <div id="header-div" class="ntext-select">
+            <img src="/images/logobranca.svg" id="header-logo">
+            <a id="header-title">Pockitchen</a>
+        </div>
+        <div id="side-bar">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+    <h1 id="titulo">Cadastrar uma Nova Receita</h1>
+    <div id="corpo">
+        <div id="principal-info">
+            <div>
+                <label for="user-name">Nome da Receita</label>
+                <input id="user-name">
+                <label for="user-bio">Descrição da Receita</label>
+                <textarea id="user-bio" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="multiple">
+            <div>
+                <label for="user-gender">Gênero</label>
+                <input id="user-gender">
+            </div>
+            <div>
+                <label for="user-birth">Data de Nascimento</label>
+                <input id="user-birth">
+            </div>
+            <div>
+                <label for="user-state">Estado</label>
+                <input id="user-state">
+            </div>
+            <div>
+                <label for="user-city">Cidade</label>
+                <input id="user-city">
+            </div>
+        </div>
+        <div>
+            <label for="user-restrictions">Minhas Restrições Alimentícias</label>
+            <div id="restrictions-tag" class="iback-div">
+                <div id="tag-list">
+                </div>
+                <input id="restrictions-tags" class="iblank" placeholder="+ restrição">
+            </div>
+            <div id="tag-search">
+            </div>
+        </div>
+        <div id="send-btn" class="h-pointer">Enviar Receita</div>
+        <br>
+        <br>
+    </div>
+</body>
+<script src="/js/lateral_bar.js" type="module"></script>
+<script src="/scripts/novaReceita.js" type="module"></script>
+</html>

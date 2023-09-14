@@ -19,7 +19,7 @@
         },{
             "icon": "circle-check",
             "text": "Completar Cadastro",
-            "link": "/home"
+            "link": "/cc"
         }
     ]
 }

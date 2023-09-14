@@ -30,7 +30,7 @@ import {
   
     } else {
       console.log("No User");
-      window.location = "/login"
+      //window.location = "/login"
     }
   });
   const collectionRef = collection(db, "recipes");

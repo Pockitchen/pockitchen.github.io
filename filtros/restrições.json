@@ -1,0 +1,144 @@
+[
+    {
+        "intolerancias": "Lactose",
+        "restricoes": 
+        [
+            "Leite",
+            "Queijo",
+            "Iogurte",
+            "Creme de leite",
+            "Sorvete",
+            "Manteiga",
+            "Leite Condensado",
+            "Chocolate",
+            "Leite em pó",
+            "Caseína",
+            "Nata",
+            "Ricota",
+            "Cottage",
+            "Requeijão",
+            "Molho Alfredo",
+            "Molho Bechamel",
+            "Pudim de leite",
+            "Molho de queijo",
+            "Creme de cacau",
+            "Creme de avelã",
+            "Molho Ranch",
+            "Molho de mostarda",
+            "Molho tártaro",
+            "Molho de churrasco"
+        ]
+    },
+    {
+        "intolerancias": "Açúcar",
+        "restricoes": 
+        [
+            "Açúcar",
+            "Doces e balas",
+            "Refrigerantes",
+            "Bolos e sobremesas açucaradas",
+            "Sorvetes açucarados",
+            "Cereais matinais com alto teor de açúcar",
+            "Molhos e condimentos açucarados",
+            "Sucos de frutas concentrados com açúcar adicionado",
+            "Chocolates",
+            "Geléias e geleias com alto teor de açúcar",
+            "Bebidas energéticas",
+            "Iogurtes açucarados",
+            "Molho ketchup açucarado",
+            "Molho de churrasco com açúcar",
+            "Molho teriyaki com açúcar",
+            "Molho agridoce com açúcar",
+            "Alimentos processados com açúcar adicionado",
+            "Molhos para salada com alto teor de açúcar",
+            "Alimentos enlatados com açúcar",
+            "Molho de tomate com açúcar",
+            "Barra de granola com alto teor de açúcar"
+        ]
+    },
+    {
+        "intolerancia": "Nozes",
+        "restricoes":
+        [
+            "Nozes",
+            "amêndoa",
+            "castanha do pará",
+            "castanha-do-pará",
+            "castanha de caju",
+            "castanha-do-caju",
+            "nozes-pecã",
+            "pistaches",
+            "manteiga de amendoim",
+            "manteiga de amêndoa",
+            "Noz-moscada",
+            "Nutella",
+            "molho de amendoim"
+        ]
+    },
+    {
+        "intolerancias": "Gluten",
+        "restricoes":
+        [
+            "trigo",
+            "cevada",
+            "farinha de trigo",
+            "farelo de trigo",
+            "farinha de cevada",
+            "farinha de centeio",
+            "cerveja",
+            "molho de soja",
+            "malte",
+            "Trigo",
+            "maltodextrina",
+            "farinha de Espelta",
+            "farinha de Kamut",
+            "farinha de Bulgur",
+            "triticale",
+            "semolina",
+            "cuscus",
+            "amido de Centeio",
+            "semolina de Milho",
+            "tapioca",
+            "extrato de Malte de Milho"
+        ]
+    },
+    {
+        "intolerancias": "Cafeína",
+        "restricoes": [
+            "Café",
+            "Chá preto",
+            "Chá verde",
+            "Chá branco",
+            "Chá oolong",
+            "Refrigerante",
+            "Energético",
+            "Suplemento",
+            "Cafeína"
+        ]
+    },
+    {
+        "intolerancias": "Histamina",
+        "restricoes": [
+            "Queijo",
+            "Vinho tinto",
+            "Cerveja",
+            "Soja",
+            "Embutidos e carnes processadas",
+            "Peixes enlatados",
+            "Alimentos em conserva",
+            "Tomates",
+            "Espinafre",
+            "Berinjela",
+            "Alimentos envelhecidos ou estragados",
+            "Bebidas alcoólicas",
+            "Vinagre",
+            "Alimentos contendo vinagre",
+            "Alimentos ricos em tiramina",
+            "Chocolate",
+            "Frutas cítricas",
+            "Morangos",
+            "Leite e produtos lácteos envelhecidos",
+            "Alimentos e bebidas contendo corantes e conservantes"
+        ]
+    }
+]
