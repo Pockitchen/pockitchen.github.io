@@ -97,8 +97,13 @@ import {
     console.log(document.getElementById("search-bar-input").value)
   }
 
+
+  
 document.getElementById("search-bar-input").addEventListener("keyup", (e)=>{
+  var bar = document.getElementById("search-bar-input")
   if (e.key == "Enter"){
-    pesquisar()
+    if(bar.value == null || bar.value.trim() === ''){
+      pesquisar()
+    } else console.log("vazio")
   }
 })

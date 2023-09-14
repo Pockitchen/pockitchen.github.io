@@ -72,7 +72,7 @@ cadastrarBtn.addEventListener('click', function() {
         .then(() => {
           console.log("Document has been added successfully");
           console.log(data)
-          //window.location = "../entrada"
+          window.location = "/user"
         })
         .catch((error) => {
           console.log(error);
@@ -130,7 +130,7 @@ cadastrarGoogle.addEventListener('click', function() {
       .then(() => {
         console.log("Document has been added successfully");
         console.log(data)
-        //window.location = "../entrada"
+        window.location = "/user"
       })
       .catch((error) => {
         console.log(error);
