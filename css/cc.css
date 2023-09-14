@@ -119,14 +119,5 @@ input[type=number] {
     width: 30px;
     margin: 0;
     background-color: none;
-}
-
-.form-control {
-    font-family: system-ui, sans-serif;
-    font-size: 2rem;
-    font-weight: bold;
-    line-height: 1.1;
-    display: grid;
-    grid-template-columns: 1em auto;
-    gap: 0.5em;
+    appearance: none;
 }
