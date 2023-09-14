@@ -156,11 +156,7 @@ function renderTags(){
 
 import {
     collection,
-    getDoc,
-    setDoc,
     addDoc,
-    getDocs,
-    doc,
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import {
     onAuthStateChanged,
@@ -228,11 +224,12 @@ enviar.addEventListener("click",() => {
         "description": valor("recipe-description"),
         "tools": separateComma(valor("recipe-tools")),
         "ingredients": separateComma(valor("recipe-ingredients")),
+        "method": separateComma(valor("recipe-method")),
         "recipe-time-hours": valor("recipe-time-hours"),
         "recipe-time-minutes": valor("recipe-time-minutes"),
         "recipe-performance": valor("recipe-performance"),
         "tags": selected_tag,
-        "avaliation": 0,
+        "rating": 0,
         "verified": false,
         "user": userid
     };
@@ -269,6 +266,7 @@ enviar.addEventListener("click",() => {
                 complete++
                 if (complete==images.length){
                     alert("A receita foi adicionada com sucesso!")
+                    window.location = "/"
                 }
                  //window.location = "../";
             })

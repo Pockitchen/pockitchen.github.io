@@ -60,6 +60,13 @@
     gap: 10px;
 }
 
+.recipe-body img{
+    object-fit: cover;
+    width: 375px;
+    height: 300px;
+    border-radius: 10px;
+}
+
 .recipe-body p{
     margin: 0;
 }
