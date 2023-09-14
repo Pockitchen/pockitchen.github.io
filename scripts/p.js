@@ -75,9 +75,9 @@ import {
     .catch((error) => {
         imageURL = "/images/error-capivara.png"
     }).then(()=>{
-      console.log(r.tags)
+      console.log(doc.id)
         document.getElementById("corpo").innerHTML+=`
-        <div class="recipe">
+        <div class="recipe h-pointer" onclick="location.href='/r/?r=${doc.id}'">
             <div class="recipe-top">
                 <h2>${r.name}</h2>
                 <h2 class="rating-stars">${countStars(r.rating)}</h2>

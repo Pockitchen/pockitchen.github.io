@@ -26,5 +26,11 @@ import {
 
   const docRef = doc(db, "recipes", recipe);
   const user = (await getDoc(docRef));
+  
   console.log(user.data())
+  document.getElementById("receita-name").innerHTML = user.data().name
+  document.getElementById("receita-performance").innerHTML = user.data()["recipe-performance"]
+  document.getElementById("receita-time-hours").innerHTML = user.data()["recipe-time-hours"]
+  document.getElementById("receita-time-minutes").innerHTML = user.data()["recipe-time-minutes"]
+  document.getElementById("receita-ingredients").innerHTML = user.data().ingredients
   document.getElementById("receita-method").innerHTML = user.data().method
