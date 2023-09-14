@@ -102,3 +102,19 @@
     padding-top: 5px;
     border-radius: 20px;
 }
+.carousel-inner {
+    height: 400px; /* Defina a altura desejada aqui */
+    margin-bottom: 20px; /* Adicione margem inferior para criar espaço */
+  }
+
+  .carousel-item img {
+    object-fit: cover; /* Garante que a imagem preencha o espaço e continue centralizada verticalmente */
+    height: 100%; /* Altura 100% para preencher a altura do carousel-inner */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    display: block; /* Remove qualquer espaço extra abaixo da imagem */
+  }
+
+  /* Estilo para criar espaço em branco abaixo do carrossel */
+  .content-below-carousel {
+    margin-top: 50px; /* Adicione margem superior para criar espaço */
+  }

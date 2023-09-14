@@ -71,31 +71,10 @@ entrarButton.addEventListener('click', async function(evento) {
   const senha = senhaInput.value
 
   try {
-    const userCredential = await signInWithEmailAndPassword(auth, email, senha)
+    const userCredential = await signInWithEmailAndPassword(auth, email, senha).then(()=>{
+
+    })
     var user = userCredential.user
-    const docRef = doc(db, "users", user.uid);
-
-    const data = {
-      name: user.displayName,
-      bithday: "",
-      gender: "",
-      state: "",
-      city: "",
-      picture: "",
-      telephone: "",
-      favourite: [],
-      restrictions: [],
-      bio: 'Clique no botão de "Editar Usuário" para mudar sua bio.'
-    };
-
-    setDoc(docRef, data)
-      .then(() => {
-        console.log("Document has been added successfully");
-        window.location = "../entrada"
-      })
-      .catch((error) => {
-        console.log(error);
-      });
 
     console.log(userCredential.user)
   } catch(error){
@@ -132,32 +111,6 @@ googleLogin.addEventListener('click', function() {
   event.preventDefault();
   signInWithPopup(auth, provider).then((result) => {
     const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    const user = result.user;
-    if (!jog.includes(user.uid)) {
-    const docRef = doc(db, "users", user.uid);
-    const data = {
-      name: user.displayName,
-      bithday: "",
-      gender: "",
-      state: "",
-      city: "",
-      picture: "",
-      telephone: "",
-      favourite: [],
-      restrictions: [],
-      bio: 'Clique no botão de "Editar Usuário" para mudar sua bio.'
-    };
-
-    setDoc(docRef, data)
-      .then(() => {
-        //console.log("Document has been added successfully");
-        window.location = "/user"
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    }
 
     console.log(user.uid)
     console.log("token")

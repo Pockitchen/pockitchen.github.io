@@ -20,13 +20,13 @@
             <i class="fa-solid fa-bars"></i>
         </div>
     </header>
-    <h1 id="titulo">Cadastrar uma Nova Receita</h1>
+    <h1 id="titulo">Complete o seu cadastro</h1>
     <div id="corpo">
         <div id="principal-info">
             <div>
-                <label for="user-name">Nome da Receita</label>
+                <label for="user-name">Nome</label>
                 <input id="user-name">
-                <label for="user-bio">Descrição da Receita</label>
+                <label for="user-bio">Biografia (um pouco sobre mim)</label>
                 <textarea id="user-bio" rows="3"></textarea>
             </div>
         </div>
@@ -37,7 +37,7 @@
             </div>
             <div>
                 <label for="user-birth">Data de Nascimento</label>
-                <input id="user-birth">
+                <input id="user-birth" type="date">
             </div>
             <div>
                 <label for="user-state">Estado</label>
@@ -52,26 +52,26 @@
             <label for="user-restrictions">Minhas Restrições Alimentícias</label>
             <div id="restrictions-tags">
                 <label class="restriction-tag ntext-select h-pointer" for="lactose">
-                    <input type="checkbox" id="lactose">Lactose
+                    <input type="checkbox" class="limitation" id="lactose">Lactose
                 </label>
                 <label class="restriction-tag ntext-select h-pointer" for="acucar">
-                    <input type="checkbox" id="acucar">Açúcar
+                    <input type="checkbox" class="limitation" id="acucar">Açúcar
                 </label>
                 <label class="restriction-tag ntext-select h-pointer" for="nozes">
-                    <input type="checkbox" id="nozes">Nozes e Castanhas
+                    <input type="checkbox" class="limitation" id="nozes">Nozes e Castanhas
                 </label>
                 <label class="restriction-tag ntext-select h-pointer" for="gluten">
-                    <input type="checkbox" id="gluten">Gluten
+                    <input type="checkbox" class="limitation" id="gluten">Gluten
                 </label>
                 <label class="restriction-tag ntext-select h-pointer" for="cafeina">
-                    <input type="checkbox" id="cafeina">Cafeína
+                    <input type="checkbox" class="limitation" id="cafeina">Cafeína
                 </label>
                 <label class="restriction-tag ntext-select h-pointer " for="histamina">
-                    <input type="checkbox" id="histamina">Histamina
+                    <input type="checkbox" class="limitation" id="histamina">Histamina
                 </label>
             </div>
         </div>
-        <div id="send-btn" class="h-pointer">Enviar Receita</div>
+        <div id="send-btn" class="h-pointer">Completar</div>
         <br>
         <br>
     </div>

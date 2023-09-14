@@ -1,3 +1,8 @@
+/* Nota do programador
+
+- se você entender alguma merda desse código, parabéns.
+*/
+
 const father = document.getElementById("recipe-tag")
 const bar = document.getElementById("recipe-tags")
 const search = document.getElementById("tag-search")

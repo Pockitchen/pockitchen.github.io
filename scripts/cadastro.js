@@ -4,7 +4,18 @@ import {onAuthStateChanged,
   signInWithPopup,
   AuthErrorCodes
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
-import { auth } from "./firebaseAPI.js";
+import {
+  updateDoc,
+  getDoc,
+  setDoc,
+  addDoc,
+  doc,
+  collection,
+  query,
+  where,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { auth,db } from "./firebaseAPI.js";
 
 const emailInput = document.getElementById('email');
 const nomeInput = document.getElementById('nome');
@@ -40,6 +51,32 @@ cadastrarBtn.addEventListener('click', function() {
     try {
       createUserWithEmailAndPassword(auth, email, senha).then((userCredential) => {
         const user = userCredential.user;
+        userName = document.getElementById("nome").value;
+        
+      const docRef = doc(db, "users", user.uid);
+      if (document.getElementById("nome").value != ""){
+        userName = document.getElementById("nome").value;
+      } else userName = user.displayName
+      const data = {
+        name: userName ,
+        bio: 'Clique no botão de "Editar Perfil" para mudar sua bio.',
+        gender: "",
+        birth: "0000-00-00",
+        state: "",
+        city: "",
+        favourite: [],
+        restrictions: [],
+      };
+  
+      setDoc(docRef, data)
+        .then(() => {
+          console.log("Document has been added successfully");
+          console.log(data)
+          //window.location = "../entrada"
+        })
+        .catch((error) => {
+          console.log(error);
+        });
       })
       console.log(user)
     } catch(error){
@@ -73,14 +110,33 @@ cadastrarGoogle.addEventListener('click', function() {
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const token = credential.accessToken;
     const user = result.user;
+    userName = user.displayName;
+    const docRef = doc(db, "users", user.uid);
     console.log(user)
     console.log("token")
     console.log(token)
+    const data = {
+      name: userName ,
+      bio: 'Clique no botão de "Editar Perfil" para mudar sua bio.',
+      gender: "",
+      birth: "0000-00-00",
+      state: "",
+      city: "",
+      favourite: [],
+      restrictions: [],
+    };
+
+    setDoc(docRef, data)
+      .then(() => {
+        console.log("Document has been added successfully");
+        console.log(data)
+        //window.location = "../entrada"
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }).catch((error) => {
     // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    const email = error.customData.email;
     // The AuthCredential type that was used.
     //const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
@@ -88,11 +144,12 @@ cadastrarGoogle.addEventListener('click', function() {
   });
 });
 
+var userName;
 onAuthStateChanged(auth, user=> {
   if (user != null){
       console.log(user.email);
       console.log("Logado");
-      window.location = "../user"
+      //window.location = "/user"
   } else {
       console.log("No User");
   }
