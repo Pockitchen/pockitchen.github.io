@@ -73,6 +73,7 @@ var selected_tag = [false,false,false,false,false,false,false];
 var s_index;
 var s = 0;
 var disponivel = 0;
+var images = [];
 
 function renderTags(){
     search.innerHTML = ""
@@ -199,6 +200,24 @@ function separateComma(txt){
     return text
 }  
 
+const inputElement = document.getElementById("imagens-upload");
+inputElement.addEventListener("change", ()=>{
+    console.log(inputElement.files)
+    images.push(inputElement.files[0])
+    inputElement.value = ""
+    console.log(inputElement.files)
+    console.log(images)
+    renderImages()
+});
+
+function renderImages() {
+    document.getElementById("images-conteiner").innerHTML = ""
+  images.forEach((e,i)=>{
+    console.log("a")
+    document.getElementById("images-conteiner").innerHTML += `<img src="${URL.createObjectURL(e)}">`
+  })
+}
+
 let enviar = document.getElementById("send-btn")
 enviar.addEventListener("click",() => {
   
@@ -213,6 +232,8 @@ enviar.addEventListener("click",() => {
         "recipe-time-minutes": valor("recipe-time-minutes"),
         "recipe-performance": valor("recipe-performance"),
         "tags": selected_tag,
+        "avaliation": 0,
+        "verified": false,
         "user": userid
     };
     console.log(data)
@@ -230,14 +251,31 @@ enviar.addEventListener("click",() => {
         alerta.innerHTML = "Por favor, insira <span class='bold'>quantas pessoas</span> a sua receita serve."
     } else {
         alerta.innerHTML = ""
-  
+
     const docRef = collection(db, "recipes");
     addDoc(docRef, data)
     .then((doc) => {
-        console.log(doc.id)
-        alert("A receita foi adicionada com sucesso!")
-        //window.location = "../";
-    }).catch(console.error)
+      console.log(doc.id)
+      var complete = 0
+      images.forEach((e,index)=>{
+        const file = e;
+        const storageRef = ref(storage, `recipes/images/${doc.id}/image_${index}.png`);
+        //console.log(file)
+          
+        const task = uploadBytesResumable(storageRef,file)
+        .then(snapshot => getDownloadURL(snapshot.ref))
+        .then(url => {
+                console.log(url);
+                complete++
+                if (complete==images.length){
+                    alert("A receita foi adicionada com sucesso!")
+                }
+                 //window.location = "../";
+            })
+            .catch(console.error);
+        })
+        
+    })
     .catch(error => {
         console.log(error);
     })
