@@ -284,5 +284,36 @@ enviar.addEventListener("click",() => {
     })
     
     } 
-  }
-)
+  })
+
+// Mascara para tempo de preparo: (coloquei o imput type text no html)
+const timeInput = document.getElementById('recipe-time-minutes');
+
+    timeInput.addEventListener('input', (event) => {
+        let value = event.target.value;
+        value = value.replace(/\D/g, '');
+        if (value.length > 2) {
+            value = value.substring(0, 2) + ':' + value.substring(2, 4);
+        }
+        event.target.value = value;
+    });
+    timeInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Backspace' && timeInput.value.endsWith(':')) {
+            event.preventDefault(); 
+            timeInput.value = timeInput.value.slice(0, -2);
+        }
+    });
+
+
+// input de pessoas: não deixa inserir valor negativo e insere apenas numeros. Não fiz nenhuma modificação no html
+document.getElementById("recipe-performance").addEventListener('input', function() {
+    
+    this.value = this.value.replace(/[^0-9]/g, '');
+
+    if (this.value.startsWith('0')) {
+        this.value = parseInt(this.value, 10);
+    }
+    if (this.value === '') {
+        this.value = '0';
+    }
+});
