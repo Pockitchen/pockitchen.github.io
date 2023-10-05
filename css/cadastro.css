@@ -135,3 +135,88 @@ h2{
     padding: 15px 15px;
     margin-left: 10px;
 }
+
+/* Adicione uma regra de estilo para telas menores */
+@media (max-width: 768px) {
+    #separador {
+        grid-template-columns: 1fr;
+    }
+
+    #content {
+        padding: 0px 20px; /* Reduz o espaço de preenchimento para telas menores */
+    }
+
+    #cadastro {
+        width: 100%; /* Faça o elemento ocupar a largura total da tela */
+        height: auto; /* Ajusta a altura automaticamente */
+        padding: 20px; /* Adicione algum espaço interno */
+        background-size: cover; /* Mantém a imagem de fundo cobrindo toda a tela */
+    }
+}
+
+
+#cad-box {
+    /* ... outros estilos ... */
+    position: relative; /* Altere de "absolute" para "relative" */
+    bottom: auto; /* Remova a propriedade "bottom" */
+    margin: 50px 0px; /* Ajuste a margem conforme necessário */
+}
+
+
+@media (max-width: 768px) {
+    #content {
+        padding: 0 20px;
+    }
+
+    #cadastro {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        background-size: cover;
+    }
+
+    #cad-box {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    /* Adicione outros estilos de ajuste para dispositivos móveis conforme necessário */
+}
+
+
+@media (max-width: 768px) {
+    #cad-box {
+        text-align: center; /* Centralize o texto */
+        background-color: rgba(255, 255, 255, 0.9); /* Fundo semi-transparente */
+        position: static; /* Volte à posição padrão */
+        margin: 20px 0; /* Ajuste a margem */
+        border-radius: 20px;
+    }
+}
+
+
+#header-title {
+    font-size: 2em; /* Tamanho do texto responsivo */
+    margin: 10px 0; /* Margem superior e inferior responsiva */
+}
+
+#header-logo {
+    width: 50px; /* Tamanho do logotipo responsivo */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: 10px 0; /* Margem superior e inferior responsiva */
+}
+
+
+@media (max-width: 768px) {
+    #header-title {
+        font-size: 1.5em; /* Redimensiona o tamanho do texto para telas menores */
+    }
+
+    #header-logo {
+        width: 40px; /* Redimensiona o logotipo para telas menores */
+    }
+ #cadastro {
+    background-image: none;
+ }
+
+}

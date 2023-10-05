@@ -134,3 +134,52 @@ input[type=number] {
     background-image: url("/images/check-solid.svg");
     background-size:cover;
 }
+
+/* Estilos padrão para o título e o logotipo */
+#header-title {
+    font-size: 2em;
+}
+
+#header-logo {
+    width: 100px;
+    height: auto;
+}
+
+/* Estilos para telas menores (por exemplo, abaixo de 768px) */
+@media (max-width: 768px) {
+    #header-title {
+        font-size: 1.5em;
+    }
+
+    #header-logo {
+        width: 80px;
+    }
+
+    .multiple{
+        width: 80px;
+    }
+    
+}
+
+
+#corpo {
+    width: 80%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Estilos para telas menores (por exemplo, abaixo de 768px) */
+@media (max-width: 768px) {
+    #corpo {
+        width: 90%;
+        padding: 10px;
+    }
+
+    /* Redimensionar elementos internos conforme necessário */
+    #titulo {
+        font-size: 1.5em;
+    }
+
+    /* Adicione estilos adicionais de elementos internos conforme necessário */
+}
