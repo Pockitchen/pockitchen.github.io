@@ -31,15 +31,18 @@
     align-items: center;
     height: 30px;
 }
+
 .recipe{
     margin: auto;
     padding: 0 1em 1em 1em;
-    width: 50%;
+    width: 40%;
     border: solid .5em var(--f2);
     border-radius: 30px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 70px;
+    font-size: .9em;
+    margin-bottom: 30px;
 }
 
 .recipe-top{
@@ -49,7 +52,7 @@
 
 .recipe-top>.rating-stars{
     float: right;
-    font-size: 1.1em;
+    font-size: 1em;
 }
 
 .recipe-body{
@@ -63,7 +66,7 @@
 .recipe-body img{
     object-fit: cover;
     width: 375px;
-    height: 300px;
+    height: 280px;
     border-radius: 10px;
 }
 
@@ -111,6 +114,7 @@
     border-radius: 14px;
     position: absolute;
     top: 0;
+    z-index: 1000px;
     width: 50%;
     margin: 0% 25%;
 }
@@ -165,6 +169,25 @@
     background-size:cover;
 }
 
+.title_highlights {
+    max-width: 67%;
+    margin: auto;
+    display: flex;
+    align-items: center;  
+    gap: 10px;
+    margin-top: -50px;
+}
+
+.rating{
+    color:#FFB800 ;
+}
+.number{
+    color:#FF5D2A;
+}
+.time, .temp {
+    color: var(--cyan);
+}
+
 #destaques-container{
     width: 70%;
     margin: auto;
@@ -175,36 +198,42 @@
 .destaque{
     max-width: 220px;
     height: 330px;
-    margin: 0 10px;
-   
-   
+    margin: 0 10px; 
+    overflow: hidden;
+    border: 5px solid var(--red);
+    border-radius: 20px;
 }
 
 .destaque img{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: .1;
-    border-radius: 15px;
-  
 }
 
 .destaque p{
     margin: 0;
 }
 
+.destaque .rating{
+    margin-bottom: 6px;
+}
 
 .destaque .infos{
     height: 100%;
-    z-index: 1000;
+    width: 110%;
     position: relative;
     top: -100%;
-    background-color: rgba(255, 0, 255, 0.103);
     display: flex;
     flex-direction: column-reverse;
+    background: linear-gradient(0deg, rgba(0,0,0,.9) 0%, rgba(0,0,0,.3) 35%, rgba(0,0,0,0) 45%);
 }
 
 .destaque .infos div{
     display: block;
-    padding: 10px;
+    padding: 20px 15px;
+}
+
+.destaque .number{
+    margin-left: 5px;
+    margin-right: 7px;
 }

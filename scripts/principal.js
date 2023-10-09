@@ -66,7 +66,7 @@ import {
             <div class="recipe-ingredients">
                 ${ingredients(r.ingredients)}
             </div>
-        </div><br>`
+        </div>`
     })
                     
 }

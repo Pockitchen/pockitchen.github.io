@@ -3,6 +3,10 @@
 :root {
     --red: #E02437;
     --orange: #FC7831;
+    --cyan: #6ADBFF;
+    --black: #272727;
+    --white: #fff;
+    --favourite: #e01955;
 
     /* Tema Claro
     --f1: #fff;
@@ -78,6 +82,10 @@ header{
     color: #fff;
     font-weight: bolder;
     font-size: 2.7em;
+}
+
+#header-title:hover,#header-logo:hover{
+    cursor: pointer;
 }
 
 #side-bar{
@@ -249,4 +257,18 @@ input{
     background-color: rgba(0,0,0,.6);
     width: 100%;
     height: 100%;
+}
+
+.o-divider,.r-divider{
+    width: 80%;
+    margin: 25px auto 30px;
+    border-style: dashed;
+}
+
+.o-divider{
+    border-color: var(--orange);
+}
+
+.r-divider{
+    border-color: var(--red);
 }

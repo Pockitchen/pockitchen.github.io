@@ -3,20 +3,40 @@ import {
     onAuthStateChanged,
     signOut,
     getAuth,
-    signInWithEmailAndPassword,
-    GoogleAuthProvider,
-    signInWithPopup,
-    sendPasswordResetEmail,
-    AuthErrorCodes
   } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+  import {
+    ref,
+    getDownloadURL,
+  } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js";
+  import {
+    getDoc,
+    doc,
+  } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+  import { db, storage } from "/scripts/firebaseAPI.js";
 
 var tema;
+
+async function getUserInfo(i){
+    const docRef = doc(db, "users", i);
+    const user = await getDoc(docRef);
+    //console.log(user.data().name)
+    document.getElementById("lb-username").innerHTML= user.data().name
+    getDownloadURL(ref(storage, `users/pp/` + i + ".png"))
+    .then((url) => {
+      var link = String(url)
+      //console.log(link)
+        document.getElementById("lb-pp").src = link
+    })
+}
+
 window.addEventListener("load", function(){
     var textlogin;
     var loged = false
+    var userName = "Clique aqui<br>para ENTRAR"
     onAuthStateChanged(auth, (user) => {
         if (user != null) {
             textlogin = "Sair da Conta"
+            getUserInfo(user.uid)
             loged = true
         } else {
             textlogin = "Entrar/Cadastrar"
@@ -31,9 +51,9 @@ window.addEventListener("load", function(){
 
     this.document.getElementById("bar-space").innerHTML = `
     <div id="lateral-bar">
-        <div id="lb-profile">
-            <img src="/images/profile-picture-padrao.png">
-            <a>Nome do usuário </a>
+        <div id="lb-profile" class="h-pointer" onclick="location.href='/${(loged)?"user":"login"}'">
+            <img id="lb-pp" src="/images/profile-picture-padrao.png">
+            <a id="lb-username">${userName} </a>
         </div>
         <hr>
         <ol id="page-list">
@@ -123,7 +143,7 @@ function theme(){
     if (localStorage.getItem("pockitchenActiveTheme") === null) {
         //console.log("não tem")
         localStorage.setItem("pockitchenActiveTheme", 0);
-        console.log("tema claro")
+        // console.log("tema claro")
     } else {
         if (parseInt(localStorage.getItem("pockitchenActiveTheme")) == 0){
             //Tema Escuro

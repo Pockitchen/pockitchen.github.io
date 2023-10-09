@@ -6,7 +6,7 @@
 const father = document.getElementById("recipe-tag")
 const bar = document.getElementById("recipe-tags")
 const search = document.getElementById("tag-search")
-const tags = [
+export const tags = [
     {
         "tag": "fitness",
         "name": "Fitness",
@@ -159,9 +159,25 @@ function renderTags(){
     }
 }
 
+
+function select_tag(){
+    var _tag = []
+    //if (select_tag)
+    selected_tag.forEach((e,i) =>{
+        if (e){
+            _tag.push(tags[i].tag)
+            console.log(tags[i].tag)
+        }
+    })
+    return _tag;
+}
+
 import {
     collection,
     addDoc,
+    getDoc,
+    updateDoc,
+    doc,
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 import {
     onAuthStateChanged,
@@ -219,9 +235,31 @@ function renderImages() {
   })
 }
 
+async function addRecipe(recipeID){
+    const userRef = doc(db, "users", userid);
+    const userSnap = await getDoc(userRef);
+    var re = userSnap.data().recipes
+    if (re==undefined){
+        var re = []
+    }
+    re.push(recipeID)
+    var data = {
+        recipes: re
+    }
+    console.log(data)
+    updateDoc(userRef, data)
+    .then(userRef => {
+        console.log("A New Document Field has been added to an existing document");
+    })
+    .catch(error => {
+        console.log(error);
+    })
+}
+
 let enviar = document.getElementById("send-btn")
 enviar.addEventListener("click",() => {
-  
+    addRecipe()
+
     //console.log("click")
     
     const data = {
@@ -233,7 +271,7 @@ enviar.addEventListener("click",() => {
         "recipe-time-hours": valor("recipe-time-hours"),
         "recipe-time-minutes": valor("recipe-time-minutes"),
         "recipe-performance": valor("recipe-performance"),
-        "tags": selected_tag,
+        "tags": select_tag(),
         "rating": 0,
         "verified": false,
         "user": userid
@@ -258,6 +296,7 @@ enviar.addEventListener("click",() => {
     addDoc(docRef, data)
     .then((doc) => {
       console.log(doc.id)
+      addRecipe(doc.id)
       var complete = 0
       images.forEach((e,index)=>{
         const file = e;
@@ -271,7 +310,7 @@ enviar.addEventListener("click",() => {
                 complete++
                 if (complete==images.length){
                     alert("A receita foi adicionada com sucesso!")
-                    window.location = "/"
+                    window.location = "/r/?r="+doc.id
                 }
                  //window.location = "../";
             })

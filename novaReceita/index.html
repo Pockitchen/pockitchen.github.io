@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/common.css">
     <link rel="stylesheet" href="/css/novaReceita.css">
-    <title>Pockitchen - Login</title>
+    <title>Pockitchen - Nova Receita</title>
     <script src="https://kit.fontawesome.com/0c7e529952.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/svg" href="/images/logobranca.svg">
 </head>
@@ -38,14 +38,14 @@
         </div>
         <label for="recipe-method">Modo de Preparo</label>
         <textarea id="recipe-method" rows="5"></textarea>
-        <div style="display: grid; gap:16px; grid-template-columns: 1fr 1fr 3fr;">
+        <div style="display: grid; gap:16px; grid-template-columns: 3fr 1.9fr 7fr;">
             <div>
                 <label for="recipe-time-hours">Tempo de Preparo</label>
                 <div id="recipe-time" class="iback-div">
-                   
-                    
-                    
+                    <input id="recipe-time-hours" type="text" class="iblank" value="00">
+                    <label for="recipe-time-hours">horas e</label>
                     <input id="recipe-time-minutes" type="text" class="iblank" value="00">
+                    <label for="recipe-time-minutes">minutos</label>
                 </div>
             </div>
             <div>

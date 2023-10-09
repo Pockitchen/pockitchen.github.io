@@ -56,10 +56,28 @@ import {
     window.location = "/"
   }
 
+  
+  const tags = ["fitness","comemorativas","festas","acucar","glutem","lactose","vegano"]
+
+  function select_tag(){
+    var _tag = []
+    //if (select_tag)
+    marcadores.forEach((e,i) =>{
+        if (e){
+            _tag.push(tags[i])
+            console.log(tags[i])
+        }
+    })
+    return _tag;
+  }
+
+console.log(select_tag())
+
 
 
   const collectionRef = collection(db, "recipes");
-  const q = query(collectionRef,where("name", ">=", pesquisa), where('name', '<=', pesquisa+ '\uf8ff'), where("tags","==",marcadores));
+  //
+  const q = query(collectionRef,where("name", ">=", pesquisa), where('name', '<=', pesquisa+ '\uf8ff'), where("tags","array-contains-any",select_tag()));
   // 
   
   const docSnap = await getDocs(q);
@@ -119,8 +137,6 @@ import {
     return valor
   }
 
-  const tags = ["fitness","comemorativas","festas","acucar","glutem","lactose","vegano"
-]
 
   function pesquisar(){
     var search=document.getElementById("search-bar-input").value

@@ -45,17 +45,72 @@ async function puxar(u) {
   document.getElementById("user-bio").innerHTML = user.data().bio;
   document.getElementById("name-edit").value = user.data().name;
   document.getElementById("bio-edit").value = user.data().bio;
+  // console.log(user.data().recipes)
+  user.data().recipes.forEach(e => {
+    puxarReceita(e)
+  });
 
   getDownloadURL(ref(storage, `users/pp/${u}.png`)).then((url) => {
-    console.log(url);
+    // console.log(url);
     document.getElementById("profile-picture").setAttribute("src", url);
     document.getElementById("pp-edit-img").setAttribute("src", url);
   });
 }
 
+async function puxarReceita(e){
+  const recipesRef = doc(db, "recipes", e);
+  const recipe = await getDoc(recipesRef);
+  var r = recipe.data()
+  // console.log(r)
+  getDownloadURL(ref(storage, `recipes/images/${recipe.id}/image_0.png`))
+    .then((url) => {
+      var link = String(url)
+      // console.log(link)
+        document.getElementById("your-recipes-ordener").innerHTML +=
+          `<div class="recipe-sample" onclick="location.href='/r/?r=${recipe.id}'">
+            <img src="${url}">
+            <div class="recipe-infos">
+                <a class="recipe-time"><i class="fa-solid fa-clock"></i> ${getTime(r["recipe-time-hours"],r["recipe-time-minutes"])}</a>
+                <a class="recipe-performance"><i class="fa-solid fa-pizza-slice"></i> ${r["recipe-performance"]}</a>
+                <a class="recipe-ratting">
+                    ${getStars(r.rating)}
+                </a>
+            </div>
+            <a class="recipe-sample-name">${r.name}</a>
+          </div>`
+    })
+}
+
+function getTime(h,m){
+  h = parseInt(h)
+  m = parseInt(m)
+  var horas = ""
+  var minutos = ""
+  if(m>0){
+    minutos = m + "m"
+  }
+
+  if(h>0){
+    horas = h + "h "
+  }
+  return horas + minutos
+}
+
+function getStars(n){
+  n = parseInt(n)
+  var i= 0
+  var r = ""
+  for(i;i<n;i++){
+    r += `<i class="fa-solid fa-star"></i>`
+  }
+  for (i;i<5;i++){
+    r += `<i class="fa-regular lid fa-star"></i>`
+  }
+  return r
+}
+
 const edit_form = document.getElementById('edit-user-form');
 document.getElementById("edit-user-btn").addEventListener("click", function(){
-  console.log("aaa")
   fadeIn(edit_form)
 })
 
@@ -69,10 +124,16 @@ document.getElementById("send-info-btn").addEventListener("click", function(){
 
 // style="display: none;" edit-user-form
 
+
+const pp_change = document.getElementById("pp-change-upload")
+pp_change.addEventListener("change", function(){
+  console.log(pp_change.files)
+  console.log("mama")
+  document.getElementById("pp-edit-img").src = URL.createObjectURL(pp_change.files[0])
+})
+
 let enviar = document.getElementById("send-info-btn");
 enviar.addEventListener("click", () => {
-
-  
 
   const data = {
     name: v("name-edit"),
@@ -90,9 +151,7 @@ enviar.addEventListener("click", () => {
       console.log(error);
     });
 
-
-
-  const file = document.getElementById("photo").files[0];
+  const file = document.getElementById("pp-change-upload").files[0];
   const metadata = {
     contentType: "picture",
   };
@@ -103,8 +162,7 @@ enviar.addEventListener("click", () => {
     .then((snapshot) => getDownloadURL(snapshot.ref))
     .then((url) => {
       console.log(url);
-      alert("Usuário modificado com sucesso");
-      location.reload()
+      document.getElementById("edit-user-success").style.display = "block"
       //window.location = "../user";
     })
     .catch(console.error);

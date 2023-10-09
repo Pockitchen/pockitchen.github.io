@@ -44,11 +44,12 @@ input, textarea{
     align-content: center;
 }
 
-#recipe-time a{
-    font-size: 1em;
-    font-weight: bolder;
-    margin: 0px 3px;
-    margin-top: -2px;
+#recipe-time input{
+    width: 1.5em;
+}
+
+#recipe-time label{
+    margin-right: 8px;
 }
 
 #performance{

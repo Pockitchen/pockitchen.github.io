@@ -1,181 +1,106 @@
-.header-container {
-    display: flex;
-    align-items: center;
-}
-
-.container {
-    margin-top: 2.5%;
+.container{
+    width: 88%;
+    margin: 70px auto;
     display: grid;
-    grid-template-columns: 10% 40% 40% 10%;
-    align-items: center;
-    min-height: 76vh;
+    grid-template-columns: 3fr 4.3fr;
+    gap: 30px;
 }
 
-.left-side {
-    grid-column-start: 2;
-    flex: 0.5;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.right-side{
+    font-size: 1.05em;
 }
 
-.items {
-    text-align: center;
+.lists{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 90%;
 }
 
-.select-image img {
-    max-width: 100%;
-    border-radius: 10px;
+h2{
+    margin-top: 50px;
+    margin-bottom: 20px;
 }
 
-.thumbnails {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.thumbnail img {
-    max-width: 100%;
-    border-radius: 10px;
-}
-
-.right-side {
-    grid-column-start: 3;
-    flex: 1;
-    padding: 40px;
-    
-}
-
-.titles {
-    font-size: 40px;
+#receita-name{
+    font-size: 2.2em;
     color: var(--red);
+    margin-bottom: 5px;
+}
+
+#receita-rating{
+    margin: 0px;
+    margin-bottom: 40px;
+    color: var(--orange);
+}
+
+#receita-rating i{
+    margin-right: 5px;
+}
+
+#receita-performance,#receita-time{
+    font-size: 1.1em;
+    font-weight: 900;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+
+#receita-performance{
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+#receita-time{
+    background-color: var(--cyan);
+    color: var(--black);
+}
+
+.lists{
     margin: 0;
 }
 
-
-h2 {
-    font-size: 25px;
+.lists li{
+    margin-bottom: 10px;
 }
 
-p {
-    font-size: 16px;
-    color: var(--text_gray)
-}
-
-.destacados {
+.left-side{
     display: flex;
-    align-items: end;
-    gap: 1vh;
-    padding: 3px;
-    border-radius: 7px;
-    color: white;
-    margin-bottom: 2vh;
+    flex-wrap: wrap;
+    gap: 1%;
+    justify-content: space-between;
 }
 
-#porcoes {
-    background: var(--orange);
-    width: 18vh;
+.left-side img{
+    max-width: 49%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 30px;
 }
 
-#tempo {
-    background: var(--blue);
-    width: 38vh;
+.left-side img:hover{
+    cursor: pointer;
 }
 
-ul {
-    list-style: inside;
-}
-
-ul li {
-    background: transparent;
-    margin-top: 0.5vh;
-    color: var(--text_gray)
-}
-
-
-
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24
-}
-
-.comments {
+#image-show{
+    background-color: rgba(0,0,0,.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    display: none;
 }
 
-.container_comments {
-    background: var(--f2);
-    width: 95%;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
+#image-show img{
+    height: 80%;
 }
 
-.subcontainer_comments {
-    width: 99%;
-    margin: 1vh;
-    border-radius: 5px;
-    background: var(--f1);
-    display: grid;
-    grid-template-columns: 10% 60% 10% 10% 10%;
-}
-
-.comment_text {
-    background: transparent;
-    border:none;
-    color: var(--t2);
-    font-size: 25px;
-    grid-column-start: 2;
-}
-
-#pfp {
-    grid-column-start: 1;
-    background-color: var(--t1);
-    color: var(--f2);
-    border-radius: 100%;
-    text-align: center;
-    width: 50%;
-    height: 62.5px;
-    margin: 2vh;
-}
-
-#grande {
-    font-size: 8vh;
-}
-
-#grande2 {
-    font-size: 8vh;
-}
-
-#grande3 {
-    font-size: 8vh;
-}
-
-#addlink {
-    grid-column-start: 3;
-    color: var(--t2);
-    display: flex;
-    justify-content: flex-end;
-    align-self: center;
-}
-
-#addfile {
-    grid-column-start: 4;
-    color: var(--t2);
-    display: flex;
-    justify-content: center;
-    align-self: center;
-}
-
-#submit {
-    grid-column-start: 5;
-    color: var(--t2);
-    display: flex;
-    justify-content: center;
-    align-self: center;
+#image-show-exit{
+    position: fixed;
+    top: 0;
+    right: 10px;
+    margin: 30px;
+    font-size: 2em;
 }
