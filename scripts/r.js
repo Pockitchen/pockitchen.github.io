@@ -106,6 +106,8 @@ onAuthStateChanged(auth, (user) => {
     showFavourites(r.data(),user.uid)
   } else {
     console.log("No User");
+    showFavourites(r.data(),"")
+    console.log(userid==="")
     var oasjdcnbaosdc = true
     document.getElementById("comment-area").addEventListener("mouseover", function(){
       if (oasjdcnbaosdc){
@@ -259,6 +261,7 @@ function showFavourites(recipe,u){
 document.getElementById("favourite-button").addEventListener("click",updateFavourite)
 
 async function updateFavourite(){
+  if (userid!==""){
   const recipeRef = doc(db, "recipes", recipe);
   const recipeSnap = await getDoc(recipeRef);
   var re = recipeSnap.data().favourites
@@ -284,6 +287,9 @@ async function updateFavourite(){
     })
     .catch(error => {
     })
+  } else {
+    alert("Você precisa estar logado para curtir.")
+  }
 }
 
 async function updateUserFavourites(){

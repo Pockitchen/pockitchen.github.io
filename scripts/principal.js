@@ -49,6 +49,7 @@ import {
     .catch((error) => {
         imageURL = "/images/error-capivara.png"
     }).then(()=>{
+      console.log(r.name+": "+r.rating)
         document.getElementById("corpo").innerHTML+=`
         <div class="recipe h-pointer" onclick="location.href='/r/?r=${doc.id}'">
             <div class="recipe-top">
@@ -73,6 +74,7 @@ import {
   );
 
   function countStars(stars){
+    stars = parseInt(stars)
     var valor ="";
     for(var i=0; i<stars;i++){
         valor +=`<i class="fa-solid fa-star"></i>`
@@ -133,7 +135,6 @@ import {
         pesquisar()
       } else console.log("vazio")
   })
-  console.log(document.getElementById("filter-button").offsetLeft)
   document.getElementById("filter-page").style.top = document.getElementById("filter-button").offsetTop+document.getElementById("filter-button").offsetHeight +"px"
 var show =false
   document.getElementById("filter-button").addEventListener("click",function(){
