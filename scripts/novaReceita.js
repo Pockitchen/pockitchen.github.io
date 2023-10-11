@@ -272,6 +272,7 @@ enviar.addEventListener("click",() => {
         "recipe-time-minutes": valor("recipe-time-minutes"),
         "recipe-performance": valor("recipe-performance"),
         "tags": select_tag(),
+        "favourites": [],
         "rating": 0,
         "verified": false,
         "user": userid

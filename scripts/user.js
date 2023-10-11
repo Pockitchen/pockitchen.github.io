@@ -47,7 +47,10 @@ async function puxar(u) {
   document.getElementById("bio-edit").value = user.data().bio;
   // console.log(user.data().recipes)
   user.data().recipes.forEach(e => {
-    puxarReceita(e)
+    puxarReceitasMinhas(e)
+  });
+  user.data().favourites.forEach(e => {
+    puxarReceitasFavoritas(e)
   });
 
   getDownloadURL(ref(storage, `users/pp/${u}.png`)).then((url) => {
@@ -57,7 +60,7 @@ async function puxar(u) {
   });
 }
 
-async function puxarReceita(e){
+async function puxarReceitasMinhas(e){
   const recipesRef = doc(db, "recipes", e);
   const recipe = await getDoc(recipesRef);
   var r = recipe.data()
@@ -67,6 +70,30 @@ async function puxarReceita(e){
       var link = String(url)
       // console.log(link)
         document.getElementById("your-recipes-ordener").innerHTML +=
+          `<div class="recipe-sample" onclick="location.href='/r/?r=${recipe.id}'">
+            <img src="${url}">
+            <div class="recipe-infos">
+                <a class="recipe-time"><i class="fa-solid fa-clock"></i> ${getTime(r["recipe-time-hours"],r["recipe-time-minutes"])}</a>
+                <a class="recipe-performance"><i class="fa-solid fa-pizza-slice"></i> ${r["recipe-performance"]}</a>
+                <a class="recipe-ratting">
+                    ${getStars(r.rating)}
+                </a>
+            </div>
+            <a class="recipe-sample-name">${r.name}</a>
+          </div>`
+    })
+}
+
+async function puxarReceitasFavoritas(e){
+  const recipesRef = doc(db, "recipes", e);
+  const recipe = await getDoc(recipesRef);
+  var r = recipe.data()
+  // console.log(r)
+  getDownloadURL(ref(storage, `recipes/images/${recipe.id}/image_0.png`))
+    .then((url) => {
+      var link = String(url)
+      // console.log(link)
+        document.getElementById("favourite-recipes-ordener").innerHTML +=
           `<div class="recipe-sample" onclick="location.href='/r/?r=${recipe.id}'">
             <img src="${url}">
             <div class="recipe-infos">

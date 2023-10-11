@@ -8,6 +8,7 @@
 
 .right-side{
     font-size: 1.05em;
+    position: relative;
 }
 
 .lists{
@@ -24,6 +25,7 @@ h2{
 #receita-name{
     font-size: 2.2em;
     color: var(--red);
+    margin-top: 0;
     margin-bottom: 5px;
 }
 
@@ -103,4 +105,159 @@ h2{
     right: 10px;
     margin: 30px;
     font-size: 2em;
+}
+
+#comment-area{
+    border: 10px solid var(--f2);
+    width: 100%;
+}
+
+#comment-rating {
+    padding: 16px 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+#comment-rating a{
+    font-size: 1.1em;
+}
+
+#change-comment-rating i{
+    color: var(--orange);
+    font-size: 1.5em;
+    margin: 0px;
+    padding-right: 5px;
+}
+
+#comment-user-field{
+    background-color: var(--f2);
+    margin: 0;
+    padding: 10px 4px 5px;
+    display: grid;
+    grid-template-columns: 25fr 90fr;
+}
+
+#comment-user{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+img{
+    object-fit: cover;
+}
+
+#comment-user img{
+    height: 130px;
+    width: 130px;
+    border-radius: 100%;
+    border: 6px solid var(--red);
+    margin: auto;
+    margin-right: 20px;
+}
+
+#comment-input{
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    background-color: var(--f1);
+    border: none;
+    outline: none;
+    resize: none;
+    padding: 10px;
+    font-size: 1em;
+}
+
+#comment-input::placeholder{
+    text-align: center;
+    padding-top: 5vh;
+    font-size: 1.3em;
+}
+
+#comment-field{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#send-comment-area{
+    display: inline-flex;
+    width: min-content;
+    margin-top: calc(-45px - 30px);
+    background-color: var(--f2);
+    padding: 15px 20px;
+    border-radius: 30px 0 0 0;
+}
+
+#send-comment-button{
+    background: var(--red);
+    font-size: 1.1em;
+    border-radius: 20px;
+    min-width: 10em;
+    height: 45px;
+    padding: 10px 20px;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    color: var(--t1);
+    border: none;
+    outline: none;
+}
+
+.unlogged-comment{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background-color: var(--f2);
+    font-size: 1.1em;
+}
+
+.unlogged-comment .button{
+    background: var(--red);
+    font-size: 1.1em;
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: var(--t1);
+    margin-top: 20px;
+}
+
+.comment{
+    display: flex;
+}
+
+.comment img{
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.comment-stars{
+    color: var(--orange);
+}
+
+#comments-section{
+    background-color: rgba(255,255,255,.05);
+    margin-top: 20px;
+    padding: 20px;
+    padding-top: 1px;
+}
+
+#comments-section hr{
+    margin: 30px 0 20px
+}
+
+#favourite-button{
+    color: var(--favourite);
+    font-size: 40px;
+    font-weight: bolder;
+    position:absolute;
+    top: 0;
+    right: 12px;
+    height: 100px;
 }
