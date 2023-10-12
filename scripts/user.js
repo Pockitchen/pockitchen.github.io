@@ -45,13 +45,16 @@ async function puxar(u) {
   document.getElementById("user-bio").innerHTML = user.data().bio;
   document.getElementById("name-edit").value = user.data().name;
   document.getElementById("bio-edit").value = user.data().bio;
-  // console.log(user.data().recipes)
-  user.data().recipes.forEach(e => {
-    puxarReceitasMinhas(e)
-  });
+  if (user.data().recipes!==undefined){
+    user.data().recipes.forEach(e => {
+      puxarReceitasMinhas(e)
+    });
+  }
+  if (user.data().favourites!==undefined){
   user.data().favourites.forEach(e => {
     puxarReceitasFavoritas(e)
   });
+}
 
   getDownloadURL(ref(storage, `users/pp/${u}.png`)).then((url) => {
     // console.log(url);

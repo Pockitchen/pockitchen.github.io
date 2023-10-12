@@ -34,7 +34,44 @@ import {
     }
   });
   const collectionRef = collection(db, "recipes");
-  const q = query(collectionRef, where("recipe-performance", ">=", "1"));
+  const q = query(collectionRef, where("rating", ">=", 4));
+  const destaques = await getDocs(q)
+  destaques.forEach((doc)=>{
+    var r = doc.data()
+    var imageURL = "/images/error-capivara.png"
+    getDownloadURL(ref(storage, `recipes/images/${doc.id}/image_0.png`))
+    .then((url) => {
+        imageURL = url
+    })
+    .catch((error) => {
+        imageURL = "/images/error-capivara.png"
+    }).then(()=>{
+        document.getElementById("destaques-container").innerHTML+=`
+        <div class="destaque h-pointer" onclick="location.href='/r/?r=${doc.id}'">
+            <img src="${imageURL}">
+            <div class="infos">
+                <div class="as">
+                    <p class="name">${r.name}</p>
+                    <p class="rating">${countStars(r.rating)}</p>
+                    <a class="performance"><i class="fa-solid fa-users" style="color: #ff5d2a;"></i><span class="number">${r["recipe-performance"]}</span></a>
+                    <a class="time">
+                        <i class="fa-solid fa-clock"></i>
+                        <a class="temp"><span class="hours">${r["recipe-time-hours"]}</span>h <span class="minutes">${r["recipe-time-minutes"]}</span>m</a>
+                    </a>
+                </div>
+            </div>
+            <div class="selos"></div>
+        </div>`
+    })
+  })
+
+
+
+
+
+
+
+
   
   const docSnap = await getDocs(collectionRef);
   
@@ -49,7 +86,6 @@ import {
     .catch((error) => {
         imageURL = "/images/error-capivara.png"
     }).then(()=>{
-      console.log(r.name+": "+r.rating)
         document.getElementById("corpo").innerHTML+=`
         <div class="recipe h-pointer" onclick="location.href='/r/?r=${doc.id}'">
             <div class="recipe-top">

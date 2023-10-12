@@ -41,12 +41,22 @@ import {
 
   document.title = "Pockitchen - " + r.data().name
   document.getElementById("receita-name").innerHTML = r.data().name
-  document.getElementById("receita-rating").innerHTML = getStars(r.data().rating) + ` -  ` + (r.data().rating) + "/5"
+  document.getElementById("receita-rating").innerHTML = getStars(r.data().rating) + ` -  ` + (r.data().rating.toFixed(1)) + "/5"
   document.getElementById("receita-performance").innerHTML = r.data()["recipe-performance"] + (parseInt(r.data()["recipe-performance"])>1)?" pessoas":"pessoa"
   document.getElementById("receita-time").innerHTML = getTime(r.data()["recipe-time-hours"],r.data()["recipe-time-minutes"])
-  document.getElementById("receita-ingredients").innerHTML = r.data().ingredients
+  document.getElementById("receita-ingredients").innerHTML = showList(r.data().ingredients)
+  document.getElementById("receita-tools").innerHTML = showList(r.data().tools)
   document.getElementById("receita-method").innerHTML = r.data().method
 
+  function showList(i){
+    console.log(i)
+    var r =""
+    i.forEach(e=>{
+      r+=`
+      <li>${e.charAt(0).toUpperCase() + e.slice(1)}</li>`
+    })
+    return r
+  }
   function getTime(h,m){
     h = parseInt(h)
     m = parseInt(m)
@@ -217,7 +227,7 @@ async function updateRating(recipe){
     total++
   })
   const data = {
-    rating: cRating/total
+    rating: (cRating/total>=4.7)?5:(cRating/total)
   };
   //console.log(data)
   const recipeRef = doc(db, "recipes", recipe);
