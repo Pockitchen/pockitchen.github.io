@@ -237,3 +237,47 @@
     margin-left: 5px;
     margin-right: 7px;
 }
+
+.recipes-selos{
+    position: relative;
+    z-index: 100;
+    height: 70px;
+    margin-top: -80px;
+    margin-left: 10px;
+    display: flex;
+    gap:10px;
+}
+
+.recipes-selos img{
+    width: 70px;
+    height: 70px;
+}
+
+.selo-hover{
+    border: 3px solid white;
+    border-radius: 20px;
+    padding: 15px 20px;
+    line-height: 16px;
+    margin-top: -80px;
+    position: absolute;
+    box-sizing: content-box;
+}
+
+#selo-hover span{
+    font-weight: 900;
+}
+
+.recipe-selo-group{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 0px;
+    width: 100vw;
+    height: 70px;
+}
+
+.recipe-selo-hidden{
+     overflow: hidden; 
+     width: 70px;
+     height: 70px;
+}

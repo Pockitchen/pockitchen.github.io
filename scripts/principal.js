@@ -93,7 +93,12 @@ import {
                 <h2 class="rating-stars">${countStars(r.rating)}</h2>
             </div>
             <div class="recipe-body">
-                <img class="recipe-image" src="${imageURL}"}>
+                <div>
+                  <img class="recipe-image" src="${imageURL}"}>
+                  <div class="recipes-selos">
+                    ${getSelos(r.tags)}
+                  </div>
+                </div>
                 <div class="recipe-text">
                     <div class="recipe-text-mask"></div>
                     <p>${r.description}
@@ -104,10 +109,44 @@ import {
                 ${ingredients(r.ingredients)}
             </div>
         </div>`
+        var selos = document.querySelectorAll(".recipe-selo-hidden")
+        var recipes = document.querySelectorAll(".recipe-image")
+        selos.forEach((selo,index)=>{
+          selo.addEventListener("mouseenter",()=>{
+            selo.style.overflow = "visible"
+          })
+          selo.addEventListener("mouseleave",()=>{
+            console.log("merda")
+            selo.style.overflow = "hidden"
+          })
+        })
     })
-                    
 }
   );
+  const selosText = {
+    vegano: "Essa receita é <span>Vegana</span>!",
+    glutem: "Essa receita é livre de <span>Glútem</span>!",
+    lactose: "Essa receita é livre de <span>Lactose</span>!",
+    acucar: "Essa receita é livre de <span>Açúcar</span>!",
+    fitness: "Essa receita é <span>Fitness</span>!",
+    festas: "Essa receita é própria para <span>Festas</span>!",
+    comemorativas: "Essa receita é própria para <span>Datas Comemorativas</span>!",
+  };
+
+  function getSelos(s){
+    var r =""
+    s.forEach(e => {
+      r+=`
+      <div class="recipe-selo-hidden">
+        <div class="recipe-selo-group">
+          <a class="selo-hover ${e}">${selosText[e]}</a>
+          <img class="selo-img" src="/images/selos/${e}.svg">
+        </div>
+      </div>`
+    });
+    return r
+  }
+
 
   function countStars(stars){
     stars = parseInt(stars)

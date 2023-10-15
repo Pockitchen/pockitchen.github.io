@@ -273,3 +273,32 @@ input{
 .r-divider{
     border-color: var(--red);
 }
+
+.vegano{
+    background: #41AB55;
+    color: var(--white);
+}
+.glutem{
+    background: #DBA759;
+    color: var(--black);
+}
+.lactose{
+    background: #5271FF;
+    color: var(--white);
+}
+.acucar{
+    background: #CB6CE6;
+    color: var(--white);
+}
+.fitness{
+    background: #F43232;
+    color: var(--white);
+}
+.festas{
+    background: #DFC24D;
+    color: var(--black);
+}
+.comemorativas{
+    background: #00690A;
+    color: var(--white);
+}

@@ -108,28 +108,6 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-.vegano{
-    background: #41AB55;
-}
-.glutem{
-    background: #DBA759;
-}
-.lactose{
-    background: #5271FF;
-}
-.acucar{
-    background: #CB6CE6;
-}
-.fitness{
-    background: #F43232;
-}
-.festas{
-    background: #DFC24D;
-}
-.comemorativas{
-    background: #00690A;
-}
-
 #tag-search{
     user-select: none;
     -webkit-user-select: none;
