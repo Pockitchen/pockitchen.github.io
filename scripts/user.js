@@ -186,9 +186,9 @@ enviar.addEventListener("click", () => {
     contentType: "picture",
   };
   const storageRef = ref(storage, `users/pp/` + userid + "." + "png");
-  console.log(file);
-
-  const task = uploadBytesResumable(storageRef, file, metadata)
+  
+  if (file!==undefined){
+    const task = uploadBytesResumable(storageRef, file, metadata)
     .then((snapshot) => getDownloadURL(snapshot.ref))
     .then((url) => {
       console.log(url);
@@ -196,4 +196,5 @@ enviar.addEventListener("click", () => {
       //window.location = "../user";
     })
     .catch(console.error);
+  } else {document.getElementById("edit-user-success").style.display = "block"}
 });

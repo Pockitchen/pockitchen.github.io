@@ -211,7 +211,7 @@ const cmntRef = collection(db, "recipes/"+recipe+"/comments");
         <div>
             <a>${c.userName} - </a>
             <a class="comment-stars">${getStars(c.rating)}</a>
-            <p>${c.comment}</p>
+            <p>${(c.comment!==null)?c.comment:""}</p>
         </div>
     </div>`
   })
