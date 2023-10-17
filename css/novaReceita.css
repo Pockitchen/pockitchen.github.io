@@ -212,3 +212,8 @@ input[type=number] {
 #send-img i{
     transform: scale(1.5);
 }
+
+#recipe-time-minutes::placeholder,#recipe-time-hours::placeholder{
+    color: var(--t1);
+    opacity: 1;
+}

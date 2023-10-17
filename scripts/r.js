@@ -25,6 +25,9 @@ import {
   const urlParams = new URLSearchParams(window.location.search);
   const recipe = urlParams.get('r')
   console.log(recipe)
+  if (recipe===null){
+    window.location = "/"
+  }
 
   const docRef = doc(db, "recipes", recipe);
   const r = (await getDoc(docRef));
@@ -37,12 +40,17 @@ import {
       //console.log(link)
         document.getElementById("recipe-images").innerHTML += `<img onclick="showIMG('${link}')" src="${url}">`
     })
+    .catch((error) => {
+      if (String(error).includes("image_0")){
+        document.getElementById("container").style.gridTemplateColumns = "0fr 1fr"
+      }
+    });
   }
-
+console.log(r.data()["recipe-performance"] )
   document.title = "Pockitchen - " + r.data().name
   document.getElementById("receita-name").innerHTML = r.data().name
   document.getElementById("receita-rating").innerHTML = getStars(r.data().rating) + ` -  ` + (r.data().rating.toFixed(1)) + "/5"
-  document.getElementById("receita-performance").innerHTML = r.data()["recipe-performance"] + (parseInt(r.data()["recipe-performance"])>1)?" pessoas":"pessoa"
+  document.getElementById("receita-performance").innerHTML = r.data()["recipe-performance"] + ((parseInt(r.data()["recipe-performance"])>1)?" pessoas":"pessoa")
   document.getElementById("receita-time").innerHTML = getTime(r.data()["recipe-time-hours"],r.data()["recipe-time-minutes"])
   document.getElementById("receita-ingredients").innerHTML = showList(r.data().ingredients)
   document.getElementById("receita-tools").innerHTML = showList(r.data().tools)

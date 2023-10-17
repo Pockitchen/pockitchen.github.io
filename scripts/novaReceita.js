@@ -256,11 +256,11 @@ async function addRecipe(recipeID){
     })
 }
 
+var receitaID = ""
 let enviar = document.getElementById("send-btn")
 enviar.addEventListener("click",() => {
-    addRecipe()
 
-    //console.log("click")
+    console.log(images.length)
     
     const data = {
         "name": valor("recipe-name"),
@@ -293,12 +293,16 @@ enviar.addEventListener("click",() => {
     } else {
         alerta.innerHTML = ""
 
+    addRecipe()
+    document.getElementById("enviando-receita-alert").style.display = "block"
     const docRef = collection(db, "recipes");
     addDoc(docRef, data)
     .then((doc) => {
       console.log(doc.id)
       addRecipe(doc.id)
+      receitaID = doc.id
       var complete = 0
+      if(images.length>0){
       images.forEach((e,index)=>{
         const file = e;
         const storageRef = ref(storage, `recipes/images/${doc.id}/image_${index}.png`);
@@ -310,13 +314,26 @@ enviar.addEventListener("click",() => {
                 console.log(url);
                 complete++
                 if (complete==images.length){
-                    alert("A receita foi adicionada com sucesso!")
-                    window.location = "/r/?r="+doc.id
+                    completeSend()
                 }
                  //window.location = "../";
             })
             .catch(console.error);
         })
+    } else {
+        completeSend()
+    }
+
+    function completeSend(){
+        document.getElementById("enviando-receita-alert").innerHTML = `
+        <div id="form-resend">
+            <p>Sua receita foi enviada ao nosso site!</p>
+            <p>Agora ela vai aparecer <span class="orange-span">em todo lugar</span>!</p>
+            <div id="enviando-receita-carregando">
+                <div id="goToLogin" class="h-pointer ntext-select" onclick="location.href='/r/?r=${receitaID}'">Ver minha receita</div>
+            </div>
+        </div>`
+    }
         
     })
     .catch(error => {

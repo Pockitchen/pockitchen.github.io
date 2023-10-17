@@ -36,7 +36,9 @@ import {
   const collectionRef = collection(db, "recipes");
   const q = query(collectionRef, where("rating", ">=", 4));
   const destaques = await getDocs(q)
+  var destaques_count = 0
   destaques.forEach((doc)=>{
+    if (destaques_count<5){
     var r = doc.data()
     var imageURL = "/images/error-capivara.png"
     getDownloadURL(ref(storage, `recipes/images/${doc.id}/image_0.png`))
@@ -63,6 +65,8 @@ import {
             <div class="selos"></div>
         </div>`
     })
+  }
+    destaques_count++
   })
 
 

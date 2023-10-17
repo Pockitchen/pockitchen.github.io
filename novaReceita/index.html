@@ -10,7 +10,11 @@
     <link rel="icon" type="image/svg" href="/images/logobranca.svg">
 </head>
 <body>
-    <div id="bar-space"></div>
+    <div id="bar-space">
+        <div id="carregando-pagina">
+            <img src="/images/logobranca.svg">
+        </div>
+    </div>
     <header>
         <div id="header-div" class="ntext-select">
             <img src="/images/logobranca.svg" id="header-logo">
@@ -42,9 +46,9 @@
             <div>
                 <label for="recipe-time-hours">Tempo de Preparo</label>
                 <div id="recipe-time" class="iback-div">
-                    <input id="recipe-time-hours" type="text" class="iblank" value="00">
+                    <input id="recipe-time-hours" type="text" class="iblank" placeholder="00">
                     <label for="recipe-time-hours">horas e</label>
-                    <input id="recipe-time-minutes" type="text" class="iblank" value="00">
+                    <input id="recipe-time-minutes" type="text" class="iblank" placeholder="00">
                     <label for="recipe-time-minutes">minutos</label>
                 </div>
             </div>
@@ -85,6 +89,26 @@
             <div>
                 <div id="goToLogin" class="h-pointer ntext-select" onclick="location.href='/login'">Entrar na minha conta / Me Registrar</div>
                 <a class="alink" href="/">Continuar só vendo receitas.</a>
+            </div>
+        </div>
+    </div>
+    <div id="enviando-receita-alert" class="alert-background" style="display: none;">
+        <div id="form-resend">
+            <p>Sua receita está sendo lida e enviada!</p>
+            <p>Por favor, espere até que seja concluído e <span class="orange-span">não saia dessa página</span>. Isto não deve demorar mais que <span class="orange-span">5 segundos</span>.</p>
+            <div id="enviando-receita-carregando">
+                <span class="loader-balls">
+                    <div class="loader loader0"></div>
+                    <div class="loader loader1"></div>
+                    <div class="loader loader2"></div>
+                    <div class="loader loader3"></div>
+                    <div class="loader loader4"></div>
+                    <div class="loader loader5"></div>
+                    <div class="loader loader6"></div>
+                    <div class="loader loader7"></div>
+                    <div class="loader loader8"></div>
+                    <div class="loader loader9"></div>
+                </span>
             </div>
         </div>
     </div>

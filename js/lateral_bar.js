@@ -29,6 +29,10 @@ async function getUserInfo(i){
     })
 }
 
+document.getElementById("header-div").addEventListener("click",()=>{
+    window.location = "/"
+})
+
 window.addEventListener("load", function(){
     var textlogin;
     var loged = false

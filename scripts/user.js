@@ -68,16 +68,20 @@ async function puxarReceitasMinhas(e){
   const recipe = await getDoc(recipesRef);
   var r = recipe.data()
   // console.log(r)
+  var link = "/images/error-capivara.png"
   getDownloadURL(ref(storage, `recipes/images/${recipe.id}/image_0.png`))
     .then((url) => {
-      var link = String(url)
+      link = String(url)
       // console.log(link)
+    })
+    .catch((error) => {
+    }).then(() => {
         document.getElementById("your-recipes-ordener").innerHTML +=
           `<div class="recipe-sample" onclick="location.href='/r/?r=${recipe.id}'">
-            <img src="${url}">
+            <img src="${link}">
             <div class="recipe-infos">
                 <a class="recipe-time"><i class="fa-solid fa-clock"></i> ${getTime(r["recipe-time-hours"],r["recipe-time-minutes"])}</a>
-                <a class="recipe-performance"><i class="fa-solid fa-pizza-slice"></i> ${r["recipe-performance"]}</a>
+                <a class="recipe-performance"><i class="fa-solid fa-user"></i> ${r["recipe-performance"]}</a>
                 <a class="recipe-ratting">
                     ${getStars(r.rating)}
                 </a>
@@ -92,16 +96,21 @@ async function puxarReceitasFavoritas(e){
   const recipe = await getDoc(recipesRef);
   var r = recipe.data()
   // console.log(r)
+  var link = "/images/error-capivara.png"
   getDownloadURL(ref(storage, `recipes/images/${recipe.id}/image_0.png`))
     .then((url) => {
-      var link = String(url)
+      link = String(url)
+      // console.log(link)
+    })
+    .catch((error) => {
+    }).then(() => {
       // console.log(link)
         document.getElementById("favourite-recipes-ordener").innerHTML +=
           `<div class="recipe-sample" onclick="location.href='/r/?r=${recipe.id}'">
-            <img src="${url}">
+            <img src="${link}">
             <div class="recipe-infos">
                 <a class="recipe-time"><i class="fa-solid fa-clock"></i> ${getTime(r["recipe-time-hours"],r["recipe-time-minutes"])}</a>
-                <a class="recipe-performance"><i class="fa-solid fa-pizza-slice"></i> ${r["recipe-performance"]}</a>
+                <a class="recipe-performance"><i class="fa-solid fa-pizza-user"></i> ${r["recipe-performance"]}</a>
                 <a class="recipe-ratting">
                     ${getStars(r.rating)}
                 </a>

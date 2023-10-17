@@ -171,6 +171,8 @@ input{
 
 #lb-profile img {
     width: 80px;
+    height: 80px;
+    object-fit: cover;
     border-radius: 50%;
     border: 5px solid var(--red);
 }
@@ -301,4 +303,54 @@ input{
 .comemorativas{
     background: #00690A;
     color: var(--white);
+}
+
+.loader-balls{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.loader{
+    animation: bblFadInOut 3s infinite ease-in-out;
+    border-radius: 50%;
+    height: 14px;
+    width: 14px;
+    background: var(--orange);
+    transform: scale(.6);
+}
+.loader1{animation-delay: 0.2s;}
+.loader2{animation-delay: 0.4s;}
+.loader3{animation-delay: 0.6s;}
+.loader4{animation-delay: 0.8s;}
+.loader5{animation-delay: 1.0s;}
+.loader6{animation-delay: 1.2s;}
+.loader7{animation-delay: 1.4s;}
+.loader8{animation-delay: 1.6s;}
+.loader9{animation-delay: 1.8s;}
+
+@keyframes bblFadInOut {
+  0%, 5%, 45%, 55%, 95%, 100% { background: var(--orange); transform: scale(.6); }
+  25%, 75% { background: var(--cyan); transform: scale(1); }
+}
+
+#carregando-pagina{
+    background-color: var(--red);
+    position: fixed;
+    z-index: 10090909;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#carregando-pagina img{
+    width: 20vw;
+    animation: carregando-logo 1.6s infinite ease-in-out;
+}
+
+@keyframes carregando-logo {
+  0%, 100% {transform: scale(.8); }
+  50%{ transform: scale(1); }
 }
