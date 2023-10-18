@@ -53,6 +53,7 @@
 .recipe-top>.rating-stars{
     float: right;
     font-size: 1em;
+    min-width: 160px;
 }
 
 .recipe-body{

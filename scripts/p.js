@@ -76,13 +76,19 @@ import {
 
   const collectionRef = collection(db, "recipes");
   //
-  const q = query(collectionRef,where("name", ">=", pesquisa), where('name', '<=', pesquisa+ '\uf8ff'), where("tags","array-contains-any",select_tag()));
+  const q = query(collectionRef, where("tags","array-contains-any",select_tag()));
   // 
   
   const docSnap = await getDocs(q);
   
+  function semAcento(txt){
+    return txt.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase()
+  }
   docSnap.forEach((doc) => {
-    console.log(doc.data());
+    console.log(semAcento(doc.data().name))
+    if(semAcento(doc.data().name).includes(semAcento(pesquisa))){
+    
+    //console.log(doc.data());
     var r = doc.data()
     var imageURL = "/images/error-capivara.png"
     getDownloadURL(ref(storage, `recipes/images/${doc.id}/image_0.png`))
@@ -92,7 +98,7 @@ import {
     .catch((error) => {
         imageURL = "/images/error-capivara.png"
     }).then(()=>{
-      console.log(doc.id)
+      //console.log(doc.id)
         document.getElementById("corpo").innerHTML+=`
         <div class="recipe h-pointer" onclick="location.href='/r/?r=${doc.id}'">
             <div class="recipe-top">
@@ -127,8 +133,8 @@ import {
             selo.style.overflow = "hidden"
           })
         })
-    })
-                    
+    })    
+  }        
 }
   );
   const selosText = {

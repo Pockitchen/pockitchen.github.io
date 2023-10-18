@@ -17,9 +17,10 @@ import {
 var tema;
 
 async function getUserInfo(i){
+    console.log(i)
     const docRef = doc(db, "users", i);
     const user = await getDoc(docRef);
-    //console.log(user.data().name)
+    console.log(user.data())
     document.getElementById("lb-username").innerHTML= user.data().name
     getDownloadURL(ref(storage, `users/pp/` + i + ".png"))
     .then((url) => {
@@ -39,11 +40,8 @@ window.addEventListener("load", function(){
     var userName = "Clique aqui<br>para ENTRAR"
     onAuthStateChanged(auth, (user) => {
         if (user != null) {
-            textlogin = "Sair da Conta"
-            getUserInfo(user.uid)
             loged = true
         } else {
-            textlogin = "Entrar/Cadastrar"
         }
     var pages
     fetch("/lateral_bar.json")
@@ -69,20 +67,25 @@ window.addEventListener("load", function(){
         </ol>
         <ol id="page-options">
             <li class="ntext-select " id="themeChange">
-                <a>
-                <i class="fa-solid fa-sun"></i>
-                <div id="theme-slider" class="bright-theme">
-                        <div>
-                        </div>
+                <div id="theme-slider" class="dark-theme">
+                    <div>
                     </div>
+                </div>
+                <i class="fa-solid fa-moon"></i>
                 </a>
                 ${tema}
             </li>
             <li class="ntext-select"><i class="fa-solid fa-users"></i>Sobre-nós</li>
-            <li class="ntext-select" id="logBtn"><i class="fa-solid fa-right-to-bracket"></i>${textlogin}</li>
+            <li class="ntext-select" id="logBtn"><i class="fa-solid fa-right-to-bracket"></i><span id="textLogin"></span></li>
         </ol>
     </div>`
     var bar = this.document.getElementById("lateral-bar")
+    if (user != null) {
+        this.document.getElementById("textLogin").innerHTML = "Sair da Conta"
+        getUserInfo(user.uid)
+    } else {
+        this.document.getElementById("textLogin").innerHTML = "Entrar/Cadastrar"
+    }
 
     
     
@@ -136,7 +139,7 @@ window.addEventListener("load", function(){
             localStorage.setItem("pockitchenActiveTheme", 0);
             theme()
             tema = "Tema Escuro"
-            document.getElementById("themeChange").innerHTML = `<a></i><div id="theme-slider" class="dark-theme"><div></div></div><i class="fa-solid fa-moon"></i></a>${tema}`
+            document.getElementById("themeChange").innerHTML = `<a><div id="theme-slider" class="dark-theme"><div></div></div><i class="fa-solid fa-moon"></i></a>${tema}`
         }
     })
 });
