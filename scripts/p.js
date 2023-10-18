@@ -61,17 +61,16 @@ import {
 
   function select_tag(){
     var _tag = []
-    //if (select_tag)
+    console.log(marcadores.includes(true))
     marcadores.forEach((e,i) =>{
         if (e){
             _tag.push(tags[i])
             console.log(tags[i])
         }
     })
-    return _tag;
+    return (marcadores.includes(true))?_tag:tags;
   }
 
-console.log(select_tag())
 
 
 
@@ -83,7 +82,7 @@ console.log(select_tag())
   const docSnap = await getDocs(q);
   
   docSnap.forEach((doc) => {
-    // console.log(doc.data());
+    console.log(doc.data());
     var r = doc.data()
     var imageURL = "/images/error-capivara.png"
     getDownloadURL(ref(storage, `recipes/images/${doc.id}/image_0.png`))
