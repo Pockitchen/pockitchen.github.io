@@ -1,0 +1,134 @@
+body {
+    background: var(--f2);
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+#separador{
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+}
+
+.text {
+    margin: 5vh;
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+h1 {
+    font-size: 3.5vh;
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+#text1 {
+    color: var(--t1);
+    width: 70%;
+    font-size: 18px;
+}
+
+h2 {
+    font-size: 3vh;
+}
+
+.equipe {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3vh;
+}
+
+.membros {
+    display: flex;
+    flex-direction: column;
+}
+
+.nome {
+    color: var(--t1);
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.fotos {
+    background: var(--t2);
+    width: 15vh;
+    height: 15vh;
+    border: 2px solid var(--orange);
+    border-radius: 100%;
+}
+
+.container_image {
+    margin-left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#image {
+    width: 60vh;
+    border-radius: 100px;
+}
+
+@media (max-width: 940px) {
+    #image {
+        width: 40vh;
+    }
+    #text1 {
+        font-size: 15px;
+        width: 90%;
+    }
+    .fotos {
+        width: 10vh;
+        height: 10vh;
+        border: 2px solid var(--orange);
+    }
+    .nome {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 700px) {
+    #image {
+        width: 30vh;
+    }
+    #text1 {
+        font-size: 13px;
+        width: 90%;
+    }
+    .fotos {
+        width: 8vh;
+        height: 8vh;
+        border: 2px solid var(--orange);
+    }
+    .nome {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 440px) {
+    h1 {
+        font-size: 2.5vh;
+    }
+    h2 {
+        font-size: 2.5vh;
+    }
+    #image {
+        width: 20vh;
+    }
+    #text1 {
+        font-size: 10px;
+        width: 90%;
+    }
+    .fotos {
+        width: 5vh;
+        height: 5vh;
+        border: 1px solid var(--orange);
+    }
+    .nome {
+        font-size: 6px;
+    }
+}

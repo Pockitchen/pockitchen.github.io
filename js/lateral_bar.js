@@ -75,7 +75,7 @@ window.addEventListener("load", function(){
                 </a>
                 ${tema}
             </li>
-            <li class="ntext-select"><i class="fa-solid fa-users"></i>Sobre-nós</li>
+            <li class="ntext-select" onClick="location.href='/sobrenos'"><i class="fa-solid fa-users"></i>Sobre-nós</li>
             <li class="ntext-select" id="logBtn"><i class="fa-solid fa-right-to-bracket"></i><span id="textLogin"></span></li>
         </ol>
     </div>`

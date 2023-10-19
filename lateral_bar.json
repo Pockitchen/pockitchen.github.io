@@ -20,6 +20,10 @@
             "icon": "circle-check",
             "text": "Completar Cadastro",
             "link": "/cc"
+        },{
+            "icon": "circle-check",
+            "text": "Completar Cadastro",
+            "link": "/cc"
         }
     ]
 }
