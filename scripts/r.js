@@ -50,7 +50,7 @@ console.log(r.data()["recipe-performance"] )
   document.title = "Pockitchen - " + r.data().name
   document.getElementById("receita-name").innerHTML = r.data().name
   document.getElementById("receita-rating").innerHTML = getStars(r.data().rating) + ` -  ` + (r.data().rating.toFixed(1)) + "/5"
-  document.getElementById("receita-performance").innerHTML = r.data()["recipe-performance"] + ((parseInt(r.data()["recipe-performance"])>1)?" pessoas":"pessoa")
+  document.getElementById("receita-performance").innerHTML = r.data()["recipe-performance"] + ((parseInt(r.data()["recipe-performance"])>1)?" pessoas":" pessoa")
   document.getElementById("receita-time").innerHTML = getTime(r.data()["recipe-time-hours"],r.data()["recipe-time-minutes"])
   document.getElementById("receita-ingredients").innerHTML = showList(r.data().ingredients)
   document.getElementById("receita-tools").innerHTML = showList(r.data().tools)
