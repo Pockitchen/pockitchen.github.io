@@ -11,11 +11,11 @@
     <title>Carregando...</title>
 </head>
 <body>
-    <div id="bar-space">
+    <!-- <div id="bar-space">
         <div id="carregando-pagina">
             <img src="/images/logobranca.svg">
         </div>
-    </div>
+    </div> -->
     <header>
         <div id="header-div" class="header-container">
             <img src="/images/logobranca.svg" id="header-logo" alt="Logo">
@@ -43,6 +43,9 @@
                     </p>
                     <p>Essa receita serve <span id="receita-performance">4 pessoas</span></p>
                     <p>Você pode preparar essa receita em <span id="receita-time"><span id="receita-time-hours">1</span> hora e <span id="receita-time-minutes">30</span> minutos</span></p>
+                    <div id="see-sugestions" class="h-pointer ntext-select" style="display: none;">
+                        <a>Ver sugestões de outras<br>formas de fazer esta receita</a>
+                    </div>
                     <div class="lists">
                         <div>
                             <h2>Ingredientes:</h2>
@@ -54,7 +57,7 @@
                             </ul>
                         </div>
                         <div>
-                            <h2>Utensílios:</h2>
+                            <h2>Uensílios:</h2>
                             <ul id="receita-tools">
                                 <li>Faca</li>
                                 <li>Faca</li>
@@ -65,6 +68,9 @@
                     </div>
                     <h2>Modo de Preparo:</h2>
                     <p id="receita-method">iadhscnoasidujcnoasdiucn adsocjna siadhscnoasidujcnoasdiucn adsocjna siadhscnoasidujcnoasdiucn adsocjna siadhscnoasidujcnoasdiucn adsocjna siadhscnoasidujcnoasdiucn adsocjna siadhscnoasidujcnoasdiucn adsocjna siadhscnoasidujcnoasdiucn adsocjna s</p>
+                    <div id="send-sugestions" class="h-pointer ntext-select">
+                        <a>Sugerir outra forma de fazer esta receita</a>
+                    </div>
                     <div id="comment-area" class="ntext-select">
                         <div id="comment-rating">
                             <a>Qual a sua nota para essa receita?</a> 
@@ -75,7 +81,7 @@
                         <div id="comment-user-field">
                             <div id="comment-user">
                                 <img id="comment-user-img" src="/images/profile-picture-padrao.png">
-                                <p id="comment-user-name">Nome do Bendito</p>
+                                <p id="comment-user-name"></p>
                             </div>
                             <div id="comment-field">
                                 <textarea id="comment-input" placeholder="Que tal nos contar o que achou da receita?"></textarea>
@@ -89,11 +95,36 @@
                     </div>
                 </div>
             </div>
+            <!-- style="display: none;" -->
+            <div id="sugestions" style="display: none;">
+                <p id="close-sugestions"><i class="fa-solid fa-xmark h-pointer"></i></p>
+                <h1 id="title">Sugestões</h1>
+                <h2>Ingredientes</h2>
+                    <a>Você pode fazer as seguintes trocas de Ingredientes:</a>
+                <table id="sugestions-area">
+                </table>
+            </div>
         </section>
     </main>
     <div id="image-show" class="d-none">
         <i id="image-show-exit" onclick="closeIMG()" class="fa-solid fa-xmark h-pointer"></i>
         <img id="image-show-img" src="https://www.sabornamesa.com.br/media/k2/items/cache/bf1e20a4462b71e3cc4cece2a8c96ac8_XL.jpg">
+    </div>
+    <div id="send-sugestions-form" style="display: none">
+        <div id="space">
+            <h3>Enviar Sugestões de Mudança</h3>
+            <div id="tabela">
+                <a>Opção</a>
+                <a class="seta"><i class="fa-solid fa-arrow-right"></i></a>
+                <a>Sugestão</a>
+                <div id="inserter"></div>
+            </div>
+            <a id="add-sugestion" class="h-pointer ntext-select"><i class="fa-solid fa-plus"></i> Sugerir outro</a>
+            <div id="user-btn">
+                <div id="sugestion-cancel" class="h-pointer ntext-select"><a>Cancelar</a></div>
+                <div id="sugestion-send" class="h-pointer ntext-select"><a>Enviar</a></div>
+            </div>
+        </div>
     </div>
 </body>
 <script src="/js/lateral_bar.js" type="module"></script>

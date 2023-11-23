@@ -79,7 +79,7 @@ import {
   const q = query(collectionRef, where("tags","array-contains-any",select_tag()));
   // 
   
-  const docSnap = await getDocs(q);
+  const docSnap = await getDocs(collectionRef);
   
   function semAcento(txt){
     return txt.normalize('NFD').replace(/[\u0300-\u036f]/g, "").toUpperCase()

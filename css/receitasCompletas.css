@@ -261,3 +261,240 @@ img{
     right: 12px;
     height: 100px;
 }
+
+#noRecipe{
+    width: 30%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+  
+#noRecipe span {
+    color: var(--red);
+    border-bottom: 5px solid var(--red)
+}
+
+#noRecipe #s{
+    color: var(--orange);
+    border: none
+}
+
+#noRecipe div{
+    background: var(--red);
+    text-align: center;
+    padding: 30px 0;
+    border-radius: 30px;
+    margin-top: 30px;
+}
+
+#noRecipe h2{
+    margin: 0;
+}
+
+#noRecipe img{
+    margin: auto;
+}
+
+#see-sugestions{
+    border: solid 3px var(--cyan);
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-bottom: -50px;
+}
+
+#send-sugestions{
+    border: solid 3px var(--cyan);
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+#see-sugestions a,#send-sugestions a{
+    color: var(--cyan);
+    font-weight: bolder;
+}
+
+#sugestions{
+    position: fixed;
+    top: 10vh;
+    left: 0px;
+    background-color: var(--f1);
+    border-radius: 30px;
+    border: solid 5px var(--cyan);
+    width: 32.2%;
+    height: 80vh;
+    margin-left: 4%;
+    overflow-y: scroll;
+    padding: 0 40px;
+}
+
+#close-sugestions{
+    position: absolute;
+    right: 5px;
+}
+
+#sugestions #title{
+    text-align: center;
+    scroll-margin-top: 50px;
+}
+
+#sugestions h2,{
+    color: var(--cyan);
+}
+
+#sugestions .fa-arrow-turn-down{
+    color: var(--cyan);
+    margin: 0px 15px;
+    transform: scaleX(-1) rotate(90deg);
+}
+
+#sugestions ul{
+    list-style: none;
+    margin: 5px;
+    padding: 0;
+    padding-left: 15px;
+}
+
+#sugestions li{
+}
+
+.sugestion-ingredient{
+    list-style:disc;
+    font-size: 1.1em;
+    margin-top: 20px;
+}
+
+#sugestions::-webkit-scrollbar {
+    width: 16px;
+}
+
+/* Track */
+#sugestions::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+/* Handle */
+#sugestions::-webkit-scrollbar-thumb {
+    background: var(--cyan); 
+    border: solid 6px var(--f1);
+    border-radius: 10px;
+}
+
+#send-sugestions-form{
+    position: fixed;
+    top: 0;
+    background-color: rgba(0,0,0,.6);
+    width: 100%;
+    height: 100%;
+}
+
+#send-sugestions-form #space{
+    background-color: var(--f1);
+    margin: auto;
+    border-radius: 30px;
+    margin-top: 100px;
+    border: 3px solid var(--cyan);
+    width: 550px;
+    padding: 10px 40px;
+}
+
+#send-sugestions-form #space h3{
+    width: 100%;
+    text-align: center;
+}
+
+#tabela{
+    width: 100%;
+    border: solid 10px transparent;
+    display: grid;
+    grid-template-columns: 8fr 4fr 10fr;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#tabela a {
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+
+#tabela .seta{
+    text-align: center;
+    background-color: #6ADBFF22;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+#tabela input,
+#tabela select {
+    border: none;
+    outline: none;
+    background-color: var(--t2);
+    border-radius: 10px;
+    color: var(--t1);
+    padding: 10px 10px;
+}
+
+#tabela select,option {
+    outline: none;
+    border: none;
+    font-size: 1em;
+    width: 100%;
+}
+
+option a{
+    padding: 10px 10px;
+}
+
+#add-sugestion{
+    margin-left: 10px;
+    padding: 10px;
+    font-size: 1.1em;
+    border-radius: 10px;
+}
+
+#add-sugestion i{
+    color: var(--cyan);
+}
+
+#add-sugestion:hover{
+    background-color: #6ADBFF22;
+}
+
+#user-btn {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    gap: 20px;
+}
+
+#user-btn div{
+    width: 100px;
+    border: solid 3px var(--cyan);
+    text-align: center;
+    font-size: 1.2em;
+    padding: 10px;
+    border-radius: 15px;
+    font-weight: bolder;
+}
+
+#sugestion-cancel a{
+    color: var(--cyan);
+}
+
+#sugestion-send{
+    background-color: var(--cyan);
+}
+
+#sugestion-send a{
+    color: var(--f1);
+}

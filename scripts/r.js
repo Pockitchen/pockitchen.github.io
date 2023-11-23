@@ -24,15 +24,27 @@ import {
   
   const urlParams = new URLSearchParams(window.location.search);
   const recipe = urlParams.get('r')
-  console.log(recipe)
+  // console.log(recipe)
   if (recipe===null){
-    window.location = "/"
+    //window.location = "/"
   }
 
   const docRef = doc(db, "recipes", recipe);
   const r = (await getDoc(docRef));
-  console.log(r.data())
+  var oasdcn = false
+  if(r.data() === undefined && oasdcn){
+    document.getElementById("container").style.display = "block"
+    document.getElementById("container").innerHTML = `
+    <div id="noRecipe">
+        <img src="/images/error-capivara.png">
+        <h1>Opa! Parece que esta receita <span>não existe mais</span> ou o link está <span>errado</span>.</h1>
+        <h1>Volte para a <span>página inicial</span> enquanto resolvemos isso <span id="s">;)</span></h1>    
+        <div onClick="location.href='/'" class="h-pointer"><h2>Voltar para a Página Inicial </h2></div>
+    </div>`
+  }
+  // console.log(r.data())
 
+  let noImage = false
   for(var i = 0; i<10;i++){
     getDownloadURL(ref(storage, `recipes/images/${r.id}/image_${i}.png`))
     .then((url) => {
@@ -43,25 +55,27 @@ import {
     .catch((error) => {
       if (String(error).includes("image_0")){
         document.getElementById("container").style.gridTemplateColumns = "0fr 1fr"
+        noImage=true
       }
     });
   }
-console.log(r.data()["recipe-performance"] )
-  document.title = "Pockitchen - " + r.data().name
-  document.getElementById("receita-name").innerHTML = r.data().name
+// console.log(r.data()["recipe-performance"] )
+  document.title = "Pockitchen - " + r.data().name.split(`"`).join("")
+  document.getElementById("receita-name").innerHTML = r.data().name.split(`"`).join("")
   document.getElementById("receita-rating").innerHTML = getStars(r.data().rating) + ` -  ` + (r.data().rating.toFixed(1)) + "/5"
-  document.getElementById("receita-performance").innerHTML = r.data()["recipe-performance"] + ((parseInt(r.data()["recipe-performance"])>1)?" pessoas":" pessoa")
+  document.getElementById("receita-performance").innerHTML = r.data()["recipe-performance"] + ((parseInt(r.data()["recipe-performance"])>1)?" pessoas":"pessoa")
   document.getElementById("receita-time").innerHTML = getTime(r.data()["recipe-time-hours"],r.data()["recipe-time-minutes"])
   document.getElementById("receita-ingredients").innerHTML = showList(r.data().ingredients)
   document.getElementById("receita-tools").innerHTML = showList(r.data().tools)
-  document.getElementById("receita-method").innerHTML = r.data().method
+  document.getElementById("receita-method").innerHTML = r.data().method.split(`"`).join("")
 
   function showList(i){
-    console.log(i)
+    // console.log(i)
     var r =""
     i.forEach(e=>{
       r+=`
       <li>${e.charAt(0).toUpperCase() + e.slice(1)}</li>`
+      r = r.split(`"`).join("");
     })
     return r
   }
@@ -116,7 +130,7 @@ async function getUserName(i){
 }
 onAuthStateChanged(auth, (user) => {
   if (user != null) {
-    console.log(user.email);
+    // console.log(user.email);
     console.log("Logado");
     userid = user.uid;
     showUserInfoComment(user.uid)
@@ -125,7 +139,7 @@ onAuthStateChanged(auth, (user) => {
   } else {
     console.log("No User");
     showFavourites(r.data(),"")
-    console.log(userid==="")
+    // console.log(userid==="")
     var oasjdcnbaosdc = true
     document.getElementById("comment-area").addEventListener("mouseover", function(){
       if (oasjdcnbaosdc){
@@ -262,14 +276,13 @@ async function showUserInfoComment(i){
 //curtida
 
 function showFavourites(recipe,u){
-  console.log(recipe.favourites)
-  console.log(u)
+  // console.log(recipe.favourites)
+  // console.log(u)
   var re = recipe.favourites
-  console.log(u)
   if (re!==undefined){
       document.getElementById("favourite-count").innerHTML = re.length
       if (re.includes(u)){
-        console.log("rem")
+        // console.log("rem")
         document.getElementById("favourite-button-heart").classList.remove("fa-regular")
         document.getElementById("favourite-button-heart").classList.add("fa-solid")
       }
@@ -284,21 +297,21 @@ async function updateFavourite(){
   const recipeSnap = await getDoc(recipeRef);
   var re = recipeSnap.data().favourites
   if (re==undefined){
-    console.log("unde")
+    // console.log("unde")
         var re = []
       }
       if (re.includes(userid)){
-        console.log("tem")
+        // console.log("tem")
         re=re.filter((e)=>{return e!==userid})
-        console.log(re.filter((e)=>{return e!==userid}))
+        // console.log(re.filter((e)=>{return e!==userid}))
     } else {
-      console.log("nao tem")
+      // console.log("nao tem")
       re.push(userid)
     }
     var data = {
         favourites: re
       }
-      console.log(data)
+      // console.log(data)
       updateDoc(recipeRef, data)
     .then(recipeRef => {
       updateUserFavourites()
@@ -314,22 +327,22 @@ async function updateUserFavourites(){
   const userRef = doc(db, "users", userid);
     const userSnap = await getDoc(userRef);
     var re = userSnap.data().favourites
-    console.log(userSnap.data())
+    // console.log(userSnap.data())
     if (re==undefined){
         var re = []
     }
     if (re.includes(recipe)){
-      console.log("tem")
+      // console.log("tem")
       re=re.filter((e)=>{return e!==recipe})
-      console.log(re.filter((e)=>{return e!==recipe}))
+      // console.log(re.filter((e)=>{return e!==recipe}))
     } else {
-      console.log("nao tem")
+      // console.log("nao tem")
       re.push(recipe)
     }
     var data = {
         favourites: re
     }
-    console.log(data)
+    // console.log(data)
     updateDoc(userRef, data)
     .then(ss => {
       location.reload()
@@ -337,3 +350,146 @@ async function updateUserFavourites(){
     .catch(error => {
     })
 }
+
+
+//envio de sugestões
+
+//criar opções
+
+document.getElementById("inserter").insertAdjacentHTML("beforebegin",`
+<select class="sugested-ingredient-tochange">
+  ${makeOptions(r.data().ingredients)}
+</select>
+<a class="seta"><i class="fa-solid fa-arrow-right"></i></a>
+<input class="sugested-ingredient" type="text">
+`)
+
+function makeOptions(i){
+  var r =""
+  i.forEach(e=>{
+    r+=`
+    <option value="${e.split(`"`).join("").trim()}"><a>${e.split(`"`).join("").trim()}</a></option>`
+  })
+  return r
+}
+
+//adicionar opções
+document.getElementById("add-sugestion").addEventListener("click", function(){
+  document.getElementById("inserter").insertAdjacentHTML("beforebegin",`
+  <select class="sugested-ingredient-tochange">
+    ${makeOptions(r.data().ingredients)}
+  </select>
+  <a class="seta"><i class="fa-solid fa-arrow-right"></i></a>
+  <input class="sugested-ingredient" type="text">
+  `)
+})
+
+//enviar sugestões
+document.getElementById("sugestion-send").addEventListener("click", function(){
+  let afirmado = true;
+  const selections_elements = document.querySelectorAll(".sugested-ingredient-tochange")
+  let selections = []
+  selections_elements.forEach(e=>{
+    selections.push(e.value)
+  })
+  const sugested_ingredients = document.querySelectorAll(".sugested-ingredient")
+  let sugested = []
+  sugested_ingredients.forEach(e=>{
+    if(e.value.trim().length <= 0){
+      afirmado = false
+    } else{
+      sugested.push(e.value)
+    }
+  })
+  if (!afirmado){
+    alert("Você não pode deixar uma sugestão vazia")
+  } else{    
+    selections.forEach((e,i)=>{
+      e = e.split(`/`).join("#")
+      // console.log(e+" =>")
+      // console.log("--- "+sugested[i])
+      let data = {"sugestions": [sugested[i]]}
+      addSugestion(e,i,data)
+    })
+  }
+})
+
+async function addSugestion(e,i,data){
+  const ingRef = doc(db, "recipes/"+recipe+"/sugestions", e);
+  const ing = (await getDoc(ingRef));
+  if (ing.data() !== undefined){
+    ing.data().sugestions.forEach(e=>{
+      data.sugestions.push(e)
+    })
+    // console.log(ing.data().sugestions)
+  } 
+  // console.log(data)
+  const docRef = doc(db, "recipes/"+recipe+"/sugestions", e);
+  setDoc(docRef, data)
+  .then((doc) => {
+    alert("Suas sugestões foram enviadas!")
+    location.reload()
+  })
+}
+
+//abrir envio de sugestões
+document.getElementById("send-sugestions").addEventListener("click", function(){
+  document.getElementById("send-sugestions-form").style.display= "block"
+})
+
+//fechar envio de sugestões
+document.getElementById("sugestion-cancel").addEventListener("click", function(){
+  document.getElementById("send-sugestions-form").style.display= "none"
+})
+
+//abrir sugestões
+document.getElementById("see-sugestions").addEventListener("click", function(){
+  document.getElementById("sugestions").style.display= "block"
+  document.getElementById("container").style.gridTemplateColumns = "3fr 4.3fr"
+})
+
+//fechar sugestões
+document.getElementById("close-sugestions").addEventListener("click", function(){
+  console.log("fechar")
+  document.getElementById("sugestions").style.display= "none"
+  if (noImage){
+    document.getElementById("container").style.gridTemplateColumns = "0fr 1fr"
+  }
+})
+
+//escrever sugestões
+function getSugestions(l){
+  let r =""
+  l.forEach((e)=>{
+    console.log(e)
+
+    r+=`<ul><li><i class="fa-solid fa-arrow-turn-down"></i>${e}</li></ul>`
+  })
+  return r
+}
+
+async function writeSugestions(){
+  const ingRef = collection(db, "recipes/"+recipe+"/sugestions");
+  const docsSnap = await getDocs(ingRef);
+
+  try {
+    const docsSnap = await getDocs(ingRef);
+    if(docsSnap.docs.length > 0) {
+       docsSnap.forEach(doc => {
+          document.getElementById("sugestions-area").innerHTML += `
+          <ul>
+              <li class="sugestion-ingredient">${String(doc.id).split(`#`).join("/")}</li>
+          </ul>
+          ${getSugestions(doc.data().sugestions)}
+          `
+       })
+    }
+  } catch (error) {
+      console.log(error);
+  }
+  if (docsSnap.docs[0] !== undefined){
+    document.getElementById("see-sugestions").style.display= "inline-block"
+  }
+}
+
+writeSugestions()
