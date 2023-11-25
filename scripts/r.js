@@ -67,7 +67,7 @@ import {
   document.getElementById("receita-time").innerHTML = getTime(r.data()["recipe-time-hours"],r.data()["recipe-time-minutes"])
   document.getElementById("receita-ingredients").innerHTML = showList(r.data().ingredients)
   document.getElementById("receita-tools").innerHTML = showList(r.data().tools)
-  document.getElementById("receita-method").innerHTML = r.data().method.split(`"`).join("")
+  document.getElementById("receita-method").innerHTML = r.data().method
 
   function showList(i){
     // console.log(i)
